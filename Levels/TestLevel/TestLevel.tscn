@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmqwp0r1lhn46"]
+
+[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="1_x2scg"]
+[ext_resource type="Script" path="res://Levels/TestLevel/testlevel.gd" id="1_xv074"]
+[ext_resource type="PackedScene" uid="uid://ddlwqso65wgkm" path="res://Player/PlayerController.tscn" id="4_fm5vk"]
+[ext_resource type="PackedScene" uid="uid://3rk5bccwgw5c" path="res://Levels/Elements/obstacle.tscn" id="4_l2qba"]
+[ext_resource type="PackedScene" uid="uid://cgvjvqo546f6g" path="res://Controllers/PauseController.tscn" id="4_vk04n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aigui"]
+albedo_texture = ExtResource("1_x2scg")
+
+[node name="Testlevel" type="Node3D"]
+script = ExtResource("1_xv074")
+
+[node name="PlayerController" parent="." instance=ExtResource("4_fm5vk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.02903, 0)
+visible = false
+
+[node name="Obstacle" parent="." instance=ExtResource("4_l2qba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.5, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 43.3755, 0)
+light_color = Color(0.709804, 0, 0.176471, 1)
+light_energy = 2.834
+
+[node name="PauseController" parent="." instance=ExtResource("4_vk04n")]
+
+[node name="Popossum" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_aigui")
+use_collision = true
+size = Vector3(100, 2, 100)

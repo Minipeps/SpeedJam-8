@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx5tqqwvb5tyc"]
+
+[ext_resource type="Script" path="res://Menus/MainMenu/MainMenu.gd" id="1_vk5ut"]
+[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/MainMenu/640px-Opossum_1.jpg" id="2_r8l7y"]
+
+[sub_resource type="GDScript" id="GDScript_cxd8h"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vk5ut")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r8l7y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 149.0
+offset_top = -246.0
+offset_right = 252.0
+offset_bottom = -145.0
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+script = SubResource("GDScript_cxd8h")
+
+[node name="TutorialButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "How To Play"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="onStartButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/TutorialButton" to="." method="onTutorialButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="onQuitButtonPressed"]

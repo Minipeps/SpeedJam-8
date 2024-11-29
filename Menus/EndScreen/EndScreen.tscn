@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://4uepyvot3h3y"]
+
+[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/MainMenu/640px-Opossum_1.jpg" id="1_axm2g"]
+[ext_resource type="Script" path="res://Menus/EndScreen/EndScreen.gd" id="1_ulwhw"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ulwhw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_axm2g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 432.0
+offset_top = 38.0
+offset_right = 921.0
+offset_bottom = 126.0
+theme_override_font_sizes/normal_font_size = 53
+text = "C'est gagner"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 149.0
+offset_top = -246.0
+offset_right = 252.0
+offset_bottom = -145.0
+grow_vertical = 0
+
+[node name="ReloadGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Reload game"
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back to main menu"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit game"
+
+[connection signal="pressed" from="VBoxContainer/ReloadGameButton" to="." method="onReloadGameSceneButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="onMainMenuButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="onQuitButtonPressed"]

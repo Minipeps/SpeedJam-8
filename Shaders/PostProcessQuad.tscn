@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dacqi65qy8880"]
+
+[ext_resource type="Shader" path="res://Shaders/PostProcesses/GaussianBlur.gdshader" id="1_utsm7"]
+[ext_resource type="Script" path="res://Shaders/PostProcessQuad.gd" id="2_4c5vc"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ofkmq"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vqqqp"]
+render_priority = 0
+shader = ExtResource("1_utsm7")
+shader_parameter/blur_strength = 3
+
+[node name="PostProcessQuad" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_ofkmq")
+surface_material_override/0 = SubResource("ShaderMaterial_vqqqp")
+script = ExtResource("2_4c5vc")
