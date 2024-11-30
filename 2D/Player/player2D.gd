@@ -114,7 +114,7 @@ func _handleMovement(delta):
 	elif abs(velocity.x) > 1:
 		_change_state_conditional(State.ROLLING, currentState != State.PREPARE_JUMP)
 	else:
-		_change_state(State.IDLE)
+		_change_state_conditional(State.IDLE, currentState != State.PREPARE_JUMP)
 
 	# Apply velocity and update floor_normal
 	move_and_slide()
