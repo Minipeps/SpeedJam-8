@@ -6,6 +6,8 @@ const FRICTION = 0.2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var animatedSprite : AnimatedSprite2D;
+
 
 enum State {
 	IDLE,
@@ -18,6 +20,7 @@ var currentState: State
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	animatedSprite = $AnimatedSprite2D
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

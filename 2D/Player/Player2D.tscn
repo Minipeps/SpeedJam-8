@@ -206,4 +206,4 @@ shape = SubResource("CapsuleShape2D_75ww0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_glvm2")
-animation = &"death"
+animation = &"kick"
