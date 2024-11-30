@@ -134,7 +134,3 @@ polygon = PackedVector2Array(0, 288, 112, 289, 177, 256, 207, 224, 344, 225, 433
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Timer" parent="CanvasLayer" instance=ExtResource("4_a7a37")]
-offset_left = -5.0
-offset_top = -12.0
-offset_right = -5.0
-offset_bottom = -12.0

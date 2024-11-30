@@ -8,8 +8,8 @@ anchors_preset = 0
 script = ExtResource("1_8j3da")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 14.0
+offset_left = 16.0
 offset_top = 16.0
-offset_right = 55.0
+offset_right = 57.0
 offset_bottom = 39.0
 text = "00:00"
