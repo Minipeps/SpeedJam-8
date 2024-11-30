@@ -138,7 +138,7 @@ func _change_state(newState: State):
 		return
 	
 	currentState = newState
-	print("newState: ", newState)
+	print("newState: ", _state_to_string(newState))
 	
 	if newState == State.IDLE:
 		_on_idle_state_entered()
@@ -181,3 +181,22 @@ func _on_tech_state_entered():
 
 func _on_dead_state_entered():
 	animatedSprite.play("death")
+
+func _state_to_string(state: State) -> String:
+	if state == State.IDLE:
+		return "IDLE"
+	if state == State.PREPARE_JUMP:
+		return "PREPARE_JUMP"
+	if state == State.JUMPING:
+		return "JUMPING"
+	if state == State.KICKING:
+		return "KICKING"
+	if state == State.ROLLING:
+		return "ROLLING"
+	if state == State.FALLING:
+		return "FALLING"
+	if state == State.TECH:
+		return "TECH"
+	if state == State.DEAD:
+		return "DEAD"
+	return "UNKNOWN"
