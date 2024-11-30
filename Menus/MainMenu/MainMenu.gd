@@ -1,7 +1,7 @@
 extends Control
 
 @onready var tutorialScene = load("res://Menus/Tutorial/Tutorial.tscn")
-@export var testLevel = "res://2D/TestPlayerLevel.tscn"
+@export var testLevel = "res://2D/Level.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
