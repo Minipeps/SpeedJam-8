@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdvcv3bw5ysdy"]
+[gd_scene load_steps=14 format=3 uid="uid://bdvcv3bw5ysdy"]
 
 [ext_resource type="Script" path="res://2D/Level.gd" id="1_y5gdm"]
 [ext_resource type="Texture2D" uid="uid://dmc4g62t0md67" path="res://Sprites/Tileset/tileset_roof.png" id="2_0sl3k"]
 [ext_resource type="PackedScene" uid="uid://c7cx7wyya1ssx" path="res://2D/Player/Player2D.tscn" id="3_dohc5"]
 [ext_resource type="PackedScene" uid="uid://d1dl5o2l103yq" path="res://Timer/Timer.tscn" id="4_a7a37"]
+[ext_resource type="PackedScene" uid="uid://ckfyrvjhmjb7w" path="res://Checkpoint/LevelEnd.tscn" id="5_7coiq"]
 [ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/checkpoint.tscn" id="5_bubwb"]
 [ext_resource type="PackedScene" uid="uid://hhg3splfg7rx" path="res://Parallax/Parallax.tscn" id="6_je5dk"]
 [ext_resource type="PackedScene" uid="uid://cti5csv2gixaj" path="res://Timer/speed_counter.tscn" id="6_sqcud"]
@@ -205,6 +206,7 @@ FALL_FACTOR = 2000
 TECH_TOLERANCE_TIME = 0.5
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
 
 [node name="TileMap" type="TileMap" parent="StaticBody2D"]
 texture_filter = 1
@@ -246,3 +248,6 @@ offset_bottom = 11.0
 
 [node name="Checkpoint" parent="." instance=ExtResource("5_bubwb")]
 position = Vector2(88, 265)
+
+[node name="LevelEnd" parent="." instance=ExtResource("5_7coiq")]
+position = Vector2(1356, 110)

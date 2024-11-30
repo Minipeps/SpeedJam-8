@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://6h4usr1uhwey"]
+[gd_scene load_steps=10 format=3 uid="uid://ckfyrvjhmjb7w"]
 
 [ext_resource type="Script" path="res://Checkpoint/LevelEnd.gd" id="1_mqrwa"]
 [ext_resource type="Texture2D" uid="uid://bti6yonfht3k0" path="res://Sprites/Checkpoint/Flag.png" id="2_c1ih2"]
