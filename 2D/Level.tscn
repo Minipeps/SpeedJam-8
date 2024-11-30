@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bdvcv3bw5ysdy"]
+[gd_scene load_steps=16 format=3 uid="uid://bdvcv3bw5ysdy"]
 
 [ext_resource type="Script" path="res://2D/Level.gd" id="1_y5gdm"]
 [ext_resource type="Texture2D" uid="uid://dmc4g62t0md67" path="res://Sprites/Tileset/tileset_roof.png" id="2_0sl3k"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/checkpoint.tscn" id="5_bubwb"]
 [ext_resource type="PackedScene" uid="uid://hhg3splfg7rx" path="res://Parallax/Parallax.tscn" id="6_je5dk"]
 [ext_resource type="PackedScene" uid="uid://cti5csv2gixaj" path="res://Timer/speed_counter.tscn" id="6_sqcud"]
+[ext_resource type="PackedScene" uid="uid://brky8na4eiune" path="res://Obstacles/Obstacle_Cone.tscn" id="9_ciupy"]
+[ext_resource type="PackedScene" uid="uid://bbuor71w7gaxd" path="res://Obstacles/Obstacle_Carton.tscn" id="10_efqkv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vog4m"]
 
@@ -194,17 +196,6 @@ script = ExtResource("1_y5gdm")
 [node name="Parallax" parent="." instance=ExtResource("6_je5dk")]
 position = Vector2(-265, 18)
 
-[node name="Player2d" parent="." instance=ExtResource("3_dohc5")]
-position = Vector2(55, 272)
-floor_max_angle = 0.991347
-SPEED = 100.0
-MAX_JUMP_VELOCITY = 310
-TIME_TO_REACH_MAX_JUMP_VELOCITY = 0.3
-MAX_JUMP_DURATION = 0.25
-GRAVITY_FACTOR = 4
-FALL_FACTOR = 2000
-TECH_TOLERANCE_TIME = 0.5
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
 
@@ -251,3 +242,35 @@ position = Vector2(88, 265)
 
 [node name="LevelEnd" parent="." instance=ExtResource("5_7coiq")]
 position = Vector2(1356, 110)
+
+[node name="Obstacle_Cone" parent="." instance=ExtResource("9_ciupy")]
+position = Vector2(570, 281)
+
+[node name="Obstacle_Carton" parent="." instance=ExtResource("10_efqkv")]
+position = Vector2(668, 281)
+
+[node name="Player2d" parent="." instance=ExtResource("3_dohc5")]
+position = Vector2(55, 272)
+floor_max_angle = 0.991347
+SPEED = 100.0
+MAX_JUMP_VELOCITY = 310
+TIME_TO_REACH_MAX_JUMP_VELOCITY = 0.1
+MAX_JUMP_DURATION = 0.25
+GRAVITY_FACTOR = 4
+FALL_FACTOR = 2000
+TECH_TOLERANCE_TIME = 0.5
+
+[node name="Sparkle" type="CPUParticles2D" parent="Player2d"]
+position = Vector2(-5, 0)
+amount = 30
+lifetime = 0.3
+speed_scale = 0.4
+explosiveness = 0.09
+randomness = 0.73
+emission_shape = 2
+emission_sphere_radius = 0.01
+direction = Vector2(-2.84, -1)
+spread = 36.78
+gravity = Vector2(-100, -200)
+initial_velocity_max = 114.28
+color = Color(1, 1, 0.141176, 1)
