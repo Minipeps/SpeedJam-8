@@ -108,9 +108,9 @@ func _handleMovement(delta):
 	var direction = Vector2(horizontal_input, 0).normalized()
 	if direction.x != 0:
 		self.velocity.x += direction.x * SPEED * delta
-		_change_state(State.KICKING)
+		_change_state_conditional(State.KICKING, currentState != State.PREPARE_JUMP)
 	elif abs(velocity.x) > 1:
-		_change_state(State.ROLLING)
+		_change_state_conditional(State.ROLLING, currentState != State.PREPARE_JUMP)
 	else:
 		_change_state(State.IDLE)
 
@@ -144,7 +144,7 @@ func _change_state(newState: State):
 		return
 	
 	currentState = newState
-	print("newState: ", newState)
+	print("newState: ", _state_to_string(newState))
 	
 	if newState == State.IDLE:
 		_on_idle_state_entered()
@@ -163,12 +163,15 @@ func _change_state(newState: State):
 	elif newState == State.DEAD:
 		_on_dead_state_entered()
 
+func _change_state_conditional(newState: State, condition: bool):
+	if condition:
+		_change_state(newState)
+
 func _on_idle_state_entered():
 	animatedSprite.play("default")
 
 func _on_prepare_jump_state_entered():
 	animatedSprite.play("preparejump")
-	pass
 
 func _on_jumping_state_entered():
 	animatedSprite.play("jumping")
@@ -196,3 +199,22 @@ func _reset_color():
 func _apply_tech_color():
 	var normalized = techAnimationTimer.time_left / techAnimationTimer.wait_time
 	$AnimatedSprite2D.modulate.v = normalized*15.
+
+func _state_to_string(state: State) -> String:
+	if state == State.IDLE:
+		return "IDLE"
+	if state == State.PREPARE_JUMP:
+		return "PREPARE_JUMP"
+	if state == State.JUMPING:
+		return "JUMPING"
+	if state == State.KICKING:
+		return "KICKING"
+	if state == State.ROLLING:
+		return "ROLLING"
+	if state == State.FALLING:
+		return "FALLING"
+	if state == State.TECH:
+		return "TECH"
+	if state == State.DEAD:
+		return "DEAD"
+	return "UNKNOWN"

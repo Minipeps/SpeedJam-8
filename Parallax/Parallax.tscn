@@ -38,7 +38,7 @@ texture = ExtResource("3_wjtfg")
 
 [node name="Parallax2D-4" type="Parallax2D" parent="."]
 scroll_offset = Vector2(0, 43)
-repeat_size = Vector2(640, 0)
+repeat_size = Vector2(960, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D-4"]
 position = Vector2(320, 180)
