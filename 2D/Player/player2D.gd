@@ -101,8 +101,10 @@ func _handleMovement(delta):
 	var floor_normal = get_floor_normal()
 	if abs(floor_normal.x) > 1e-3:
 		self.velocity.x += (floor_normal.x*GRAVITY_FACTOR) * SPEED * delta
+		#set_rotation(PI/2 - acos(floor_normal.x/2))
 	# On flat terrain, apply friction
 	else:
+		#set_rotation(0)
 		_apply_friction(delta)
 
 	# Get the input direction and handle the movement
