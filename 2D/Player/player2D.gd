@@ -84,7 +84,7 @@ func _handleMovement(delta):
 			_change_state(State.TECH)
 			print("Tech successful!")
 		else:
-			velocity.x /= FALL_FACTOR
+			_apply_tech_fail_effect()
 		move_and_slide()
 		return
 	
@@ -126,6 +126,9 @@ func _apply_friction(delta):
 		self.velocity.x -= FRICTION * SPEED * delta
 	elif (velocity.x < 0):
 		self.velocity.x += FRICTION * SPEED * delta
+		
+func _apply_tech_fail_effect():
+	velocity.x /= FALL_FACTOR
 
 func _leave_floor():
 	heightWhenLeavingFloor = position.y
