@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7cx7wyya1ssx"]
+[gd_scene load_steps=14 format=3 uid="uid://c7cx7wyya1ssx"]
 
 [ext_resource type="Script" path="res://2D/Player/player2D.gd" id="1_53slt"]
+[ext_resource type="Texture2D" uid="uid://uba43eeiotb6" path="res://Sprites/Player/skaterrolling.png" id="2_5fncy"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_bx5c8"]
 size = Vector2(16, 32)
@@ -11,11 +12,65 @@ size = Vector2(16, 32)
 radius = 8.0
 height = 32.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_t00lw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_666w0"]
+atlas = ExtResource("2_5fncy")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hullc"]
+atlas = ExtResource("2_5fncy")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6gu2"]
+atlas = ExtResource("2_5fncy")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lot4h"]
+atlas = ExtResource("2_5fncy")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaewv"]
+atlas = ExtResource("2_5fncy")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd63v"]
+atlas = ExtResource("2_5fncy")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe858"]
+atlas = ExtResource("2_5fncy")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glvm2"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_666w0")
+}],
 "loop": true,
-"name": &"idle",
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hullc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6gu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lot4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaewv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd63v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe858")
+}],
+"loop": true,
+"name": &"rolling",
 "speed": 5.0
 }]
 
@@ -32,5 +87,5 @@ texture = SubResource("MeshTexture_gtqbt")
 shape = SubResource("CapsuleShape2D_75ww0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_t00lw")
-animation = &"idle"
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_glvm2")
