@@ -4,7 +4,7 @@ var LAST_CHECKPOINT
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$CanvasLayer/Timer.restart_timer()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -22,3 +22,4 @@ func load_last_checkpoint():
 	if LAST_CHECKPOINT != null:
 		$Player2d.position = LAST_CHECKPOINT.position
 		$Player2d.reset_player()
+		LAST_CHECKPOINT = null

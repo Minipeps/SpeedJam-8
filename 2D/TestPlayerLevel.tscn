@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdvcv3bw5ysdy"]
+[gd_scene load_steps=9 format=3 uid="uid://bdvcv3bw5ysdy"]
 
 [ext_resource type="PackedScene" uid="uid://hhg3splfg7rx" path="res://Parallax/Parallax.tscn" id="1_6kcr6"]
 [ext_resource type="Script" path="res://2D/Level.gd" id="1_q10ro"]
 [ext_resource type="PackedScene" uid="uid://c7cx7wyya1ssx" path="res://2D/Player/Player2D.tscn" id="2_h8e3e"]
 [ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/checkpoint.tscn" id="2_hkyd4"]
+[ext_resource type="PackedScene" uid="uid://d1dl5o2l103yq" path="res://Timer/Timer.tscn" id="5_6qi12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc0ds"]
 size = Vector2(640, 200)
@@ -99,3 +100,7 @@ position = Vector2(403, 175)
 
 [node name="Checkpoint_2" parent="Checkpoints" instance=ExtResource("2_hkyd4")]
 position = Vector2(979, 175)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Timer" parent="CanvasLayer" instance=ExtResource("5_6qi12")]

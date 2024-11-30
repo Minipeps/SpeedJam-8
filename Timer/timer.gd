@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var TIME_ELAPSED : float = 0.0
 var UPDATE_TIMER : bool
@@ -20,6 +20,10 @@ func update_timer(delta):
 func stop_and_reset_timer():
 	TIME_ELAPSED = 0.0
 	UPDATE_TIMER = false
+	
+func restart_timer():
+	stop_and_reset_timer()
+	start_timer()
 
 func update_timer_label(time_elapsed):
 	var seconds : int = fmod(time_elapsed,60.0)
