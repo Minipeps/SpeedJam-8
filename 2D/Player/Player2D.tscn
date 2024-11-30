@@ -208,3 +208,9 @@ animation = &"preparejump"
 [node name="TechTimer" type="Timer" parent="."]
 
 [node name="TechAnimationTimer" type="Timer" parent="."]
+
+[node name="FlyingTimer" type="Timer" parent="."]
+
+[node name="LoadingJumpTimer" type="Timer" parent="."]
+
+[node name="FallAnimationTimer" type="Timer" parent="."]

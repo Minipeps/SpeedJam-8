@@ -1,13 +1,15 @@
 extends CharacterBody2D
 
 @export var SPEED = 200.0
-@export var JUMP_VELOCITY = 300
+@export var MAX_JUMP_VELOCITY = 300
+@export var TIME_TO_REACH_MAX_JUMP_VELOCITY = 1
+@export var MAX_JUMP_DURATION = 3.
 @export var FRICTION = 0.2
 @export var MAX_FALL_HEIGHT = 32
 @export var GRAVITY_FACTOR = 1
 @export var FALL_FACTOR = 4
 @export var TECH_TOLERANCE_TIME = 0.1
-@export var TECH_ANIMATION_TOLERANCE_TIME = 0.3
+@export var FLASH_TIME = 0.2
 
 signal on_player_death
 
@@ -30,8 +32,11 @@ var currentState: State
 var leftTheFloor: bool = false
 var heightWhenLeavingFloor: float
 var isDead: bool = false
+@onready var loadingJumpTimer: Timer = $LoadingJumpTimer
 @onready var techTimer: Timer = $TechTimer
 @onready var techAnimationTimer: Timer = $TechAnimationTimer
+@onready var fallAnimationTimer: Timer = $FallAnimationTimer
+@onready var flyingTimer: Timer = $FlyingTimer
 var attemptingTech: bool = false
 
 func _ready():
@@ -40,8 +45,18 @@ func _ready():
 	techTimer.timeout.connect(_on_tech_timer_elapsed)
 	
 	techAnimationTimer.set_one_shot(true)
-	techAnimationTimer.set_wait_time(TECH_ANIMATION_TOLERANCE_TIME)
+	techAnimationTimer.set_wait_time(FLASH_TIME)
 	techAnimationTimer.timeout.connect(_reset_color)
+	
+	fallAnimationTimer.set_one_shot(true)
+	fallAnimationTimer.set_wait_time(FLASH_TIME)
+	fallAnimationTimer.timeout.connect(_reset_color)
+	
+	loadingJumpTimer.set_one_shot(true)
+	loadingJumpTimer.set_wait_time(TIME_TO_REACH_MAX_JUMP_VELOCITY)
+	
+	flyingTimer.set_one_shot(true)
+	flyingTimer.set_wait_time(MAX_JUMP_DURATION)
 
 func reset_player():
 	isDead = false
@@ -57,6 +72,8 @@ func _on_tech_timer_elapsed():
 	attemptingTech = false
 
 func _physics_process(delta):
+	if fallAnimationTimer.is_stopped() == false:
+		_apply_fall_color()
 	if techAnimationTimer.is_stopped() == false:
 		_apply_tech_color()
 	if not isDead:
@@ -92,7 +109,11 @@ func _handleMovement(delta):
 	if Input.is_action_just_pressed("player_move_up"):
 		_change_state(State.PREPARE_JUMP)
 	elif Input.is_action_just_released("player_move_up"):
-		self.velocity.y = -JUMP_VELOCITY
+		var jump_factor = 1
+		if not loadingJumpTimer.is_stopped():
+			jump_factor = (loadingJumpTimer.wait_time - loadingJumpTimer.time_left)/loadingJumpTimer.wait_time
+		self.velocity.y = -(jump_factor*MAX_JUMP_VELOCITY)
+		loadingJumpTimer.stop()
 		_leave_floor()
 		_change_state(State.JUMPING)
 		move_and_slide()
@@ -128,11 +149,13 @@ func _apply_friction(delta):
 		self.velocity.x += FRICTION * SPEED * delta
 		
 func _apply_tech_fail_effect():
+	fallAnimationTimer.start()
 	velocity.x /= FALL_FACTOR
 
 func _leave_floor():
 	heightWhenLeavingFloor = position.y
 	leftTheFloor = true
+	flyingTimer.start()
 
 func _check_death_by_fall() -> bool:
 	# Player already on the floor
@@ -140,7 +163,7 @@ func _check_death_by_fall() -> bool:
 		return false
 	# Check against latest height on floor
 	leftTheFloor = false
-	return (position.y - heightWhenLeavingFloor) > MAX_FALL_HEIGHT
+	return flyingTimer.is_stopped()
 
 func _die():
 	isDead = true
@@ -156,6 +179,7 @@ func _change_state(newState: State):
 	if newState == State.IDLE:
 		_on_idle_state_entered()
 	elif newState == State.PREPARE_JUMP:
+		loadingJumpTimer.start()
 		_on_prepare_jump_state_entered()
 	elif newState == State.JUMPING:
 		_on_jumping_state_entered()
@@ -205,6 +229,10 @@ func _reset_color():
 func _apply_tech_color():
 	var normalized = techAnimationTimer.time_left / techAnimationTimer.wait_time
 	$AnimatedSprite2D.modulate.v = normalized*15.
+	
+func _apply_fall_color():
+	var normalized = fallAnimationTimer.time_left / fallAnimationTimer.wait_time
+	$AnimatedSprite2D.modulate = Color(1., normalized, 1.)
 
 func _state_to_string(state: State) -> String:
 	if state == State.IDLE:
