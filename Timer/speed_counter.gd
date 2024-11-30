@@ -10,8 +10,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var speed = snapped(absf(SPEED_TO_DISPLAY)/SPEED_LIMIT, 0.001)
+	var speed = snapped(absf(SPEED_TO_DISPLAY)/SPEED_LIMIT, 0.1)
 	#$Label.text = "%02fkm/h" % [speed]
-	$Label.text = str(speed) + "km/h"
+	$Label.text = str(speed) + " km/h"
 	$Label.modulate = Color(speed/10., 0., 0.)
 	pass

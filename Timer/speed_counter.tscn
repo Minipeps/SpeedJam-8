@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cti5csv2gixaj"]
+[gd_scene load_steps=2 format=3 uid="uid://bhq1ku8ahsqna"]
 
 [ext_resource type="Script" path="res://Timer/speed_counter.gd" id="1_npu5l"]
 
@@ -13,5 +13,7 @@ script = ExtResource("1_npu5l")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 16.0
+offset_top = 5.0
+offset_right = 56.0
+offset_bottom = 28.0
