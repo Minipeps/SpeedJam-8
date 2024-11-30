@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://Timer/timer.gd" id="1_8j3da"]
 
-[node name="Timer" type="Node2D"]
+[node name="Timer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_8j3da")
 
 [node name="Label" type="Label" parent="."]

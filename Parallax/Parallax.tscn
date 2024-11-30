@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://hhg3splfg7rx"]
 
-[ext_resource type="Texture2D" uid="uid://c4674w0up0gts" path="res://Sprites/Parallax/sky.png" id="1_68ogj"]
 [ext_resource type="Texture2D" uid="uid://nj88m1lrjc0h" path="res://Sprites/Parallax/parallax_2.png" id="1_sifxs"]
+[ext_resource type="Texture2D" uid="uid://7084gwbwnmsx" path="res://Sprites/Parallax/parallax_1.png" id="2_grs37"]
 [ext_resource type="Texture2D" uid="uid://ca4j4j6ts8lqg" path="res://Sprites/Parallax/parallax_3.png" id="3_wjtfg"]
 [ext_resource type="Texture2D" uid="uid://dos0sw5ii264p" path="res://Sprites/Parallax/parallax_4.png" id="4_kxutt"]
 
@@ -14,7 +14,7 @@ repeat_size = Vector2(640, 0)
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D-1"]
 position = Vector2(320, 180)
 scale = Vector2(1.11111, 1.11111)
-texture = ExtResource("1_68ogj")
+texture = ExtResource("2_grs37")
 
 [node name="Parallax2D-2" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.25, 0.25)
