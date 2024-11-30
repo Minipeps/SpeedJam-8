@@ -27,6 +27,11 @@ var leftTheFloor: bool = false
 var heightWhenLeavingFloor: float
 var isDead: bool = false
 
+func reset_player():
+	isDead = false
+	leftTheFloor = false
+	velocity = Vector2.ZERO
+
 func _physics_process(delta):
 	if not isDead:
 		_handleMovement(delta)
