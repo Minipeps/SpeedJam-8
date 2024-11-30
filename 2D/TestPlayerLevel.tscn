@@ -92,10 +92,8 @@ position = Vector2(-160, -174)
 scale = Vector2(20, 10.25)
 mesh = SubResource("QuadMesh_52xqb")
 
-[node name="Checkpoints" type="Node2D" parent="."]
-
-[node name="Checkpoint_1" parent="Checkpoints" instance=ExtResource("2_hkyd4")]
+[node name="Checkpoint_1" parent="." instance=ExtResource("2_hkyd4")]
 position = Vector2(403, 175)
 
-[node name="Checkpoint_2" parent="Checkpoints" instance=ExtResource("2_hkyd4")]
+[node name="Checkpoint_2" parent="." instance=ExtResource("2_hkyd4")]
 position = Vector2(979, 175)

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY = 300
 @export var FRICTION = 0.2
 @export var MAX_FALL_HEIGHT = 32
+@export var GRAVITY_FACTOR = 1
 
 signal on_player_death
 
@@ -68,7 +69,7 @@ func _handleMovement(delta):
 	# Accelerate/deccelerate on slopes
 	var floor_normal = get_floor_normal()
 	if abs(floor_normal.x) > 1e-3:
-		self.velocity.x += floor_normal.x * SPEED * delta
+		self.velocity.x += (floor_normal.x*GRAVITY_FACTOR) * SPEED * delta
 	# On flat terrain, apply friction
 	else:
 		_apply_friction(delta)
