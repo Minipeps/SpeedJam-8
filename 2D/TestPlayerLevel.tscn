@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cq1ext6ke60mi"]
+[gd_scene load_steps=8 format=3 uid="uid://bdvcv3bw5ysdy"]
 
 [ext_resource type="PackedScene" uid="uid://hhg3splfg7rx" path="res://Parallax/Parallax.tscn" id="1_6kcr6"]
+[ext_resource type="Script" path="res://2D/Level.gd" id="1_q10ro"]
 [ext_resource type="PackedScene" uid="uid://c7cx7wyya1ssx" path="res://2D/Player/Player2D.tscn" id="2_h8e3e"]
 [ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/checkpoint.tscn" id="2_hkyd4"]
 
@@ -13,6 +14,7 @@ size = Vector2(640, 200)
 [sub_resource type="QuadMesh" id="QuadMesh_52xqb"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_q10ro")
 
 [node name="Parallax" parent="." instance=ExtResource("1_6kcr6")]
 
@@ -90,5 +92,8 @@ position = Vector2(-160, -174)
 scale = Vector2(20, 10.25)
 mesh = SubResource("QuadMesh_52xqb")
 
-[node name="Checkpoint" parent="." instance=ExtResource("2_hkyd4")]
+[node name="Checkpoint_1" parent="." instance=ExtResource("2_hkyd4")]
 position = Vector2(403, 175)
+
+[node name="Checkpoint_2" parent="." instance=ExtResource("2_hkyd4")]
+position = Vector2(979, 175)

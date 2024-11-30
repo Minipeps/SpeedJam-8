@@ -55,7 +55,7 @@ script = ExtResource("1_ng7kv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(10, -3)
 sprite_frames = SubResource("SpriteFrames_sf04e")
-frame_progress = 0.095778
+frame_progress = 0.754136
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
