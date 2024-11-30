@@ -18,6 +18,7 @@ enum State {
 	KICKING,
 	ROLLING,
 	FALLING,
+	TECH,
 	DEAD
 }
 
@@ -122,6 +123,8 @@ func _change_state(newState: State):
 		_on_rolling_state_entered()
 	elif newState == State.FALLING:
 		_on_falling_state_entered()
+	elif newState == State.TECH:
+		_on_tech_state_entered()
 	elif newState == State.DEAD:
 		_on_dead_state_entered()
 
@@ -142,6 +145,9 @@ func _on_kicking_state_entered():
 	
 func _on_rolling_state_entered():
 	animatedSprite.play("rolling")
-	
+
+func _on_tech_state_entered():
+	pass
+
 func _on_dead_state_entered():
 	animatedSprite.play("death")
