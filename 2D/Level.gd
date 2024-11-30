@@ -4,7 +4,8 @@ var LAST_CHECKPOINT
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$CanvasLayer/Timer.restart_timer()
+	if $CanvasLayer/Timer:
+		$CanvasLayer/Timer.restart_timer()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -15,8 +16,9 @@ func _input(event):
 		load_last_checkpoint()
 
 func register_checkpoint(checkpoint_reference):
-	LAST_CHECKPOINT = checkpoint_reference
-	print(checkpoint_reference.name)
+	if LAST_CHECKPOINT != checkpoint_reference:
+		LAST_CHECKPOINT = checkpoint_reference
+		print(checkpoint_reference.name)
 
 func load_last_checkpoint():
 	if LAST_CHECKPOINT != null:
