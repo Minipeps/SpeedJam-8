@@ -29,19 +29,21 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta):
 	_handleMovement(delta)
-	_handleAnimation()
 
 func _handleMovement(delta):
-	currentState = State.IDLE
-	
 	# Add gravity
 	self.velocity.y += gravity * delta
+
+	# Do not update player velocity if we are not on the floor
+	if not is_on_floor():
+		move_and_slide()
+		return
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("player_move_up") and is_on_floor():
+	if Input.is_action_just_pressed("player_move_up"):
 		self.velocity.y = -JUMP_VELOCITY
-		currentState = State.JUMPING
-		self.move_and_slide()
+		_change_state(State.JUMPING)
+		move_and_slide()
 		return
 
 	# Accelerate/deccelerate on slopes
@@ -57,18 +59,49 @@ func _handleMovement(delta):
 	var direction = Vector2(horizontal_input, 0).normalized()
 	if direction.x != 0:
 		self.velocity.x += direction.x * SPEED * delta
-		currentState = State.KICKING
+		_change_state(State.KICKING)
 	elif abs(velocity.x) > 0:
-		currentState = State.ROLLING
+		_change_state(State.ROLLING)
+	else:
+		_change_state(State.IDLE)
 
 	# Apply velocity and update floor_normal
-	self.move_and_slide()
-	
-func _handleAnimation():
-	pass
+	move_and_slide()
 	
 func _apply_friction(delta):
 	if (velocity.x > 0):
 		self.velocity.x -= FRICTION * SPEED * delta
 	elif (velocity.x < 0):
 		self.velocity.x += FRICTION * SPEED * delta
+
+func _change_state(newState: State):
+	if newState == currentState:
+		return
+	
+	currentState = newState
+	
+	if newState == State.IDLE:
+		_on_idle_state_entered()
+	elif newState == State.JUMPING:
+		_on_jumping_state_entered()
+	elif newState == State.KICKING:
+		_on_kicking_state_entered()
+	elif newState == State.ROLLING:
+		_on_rolling_state_entered()
+	elif newState == State.DEAD:
+		_on_dead_state_entered()
+
+func _on_idle_state_entered():
+	pass
+	
+func _on_jumping_state_entered():
+	pass
+	
+func _on_kicking_state_entered():
+	pass
+	
+func _on_rolling_state_entered():
+	pass
+	
+func _on_dead_state_entered():
+	pass
