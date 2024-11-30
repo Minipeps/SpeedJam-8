@@ -1,24 +1,12 @@
 extends Node
 @export var mainMenu = "res://Menus/MainMenu/MainMenu.tscn"
 
-const winText = "c'est gagner!"
-const loseText = "c'est perdut :("
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if(Main.getCurrentGameMode() == Main.GAME_MODE.IN_LEVEL_WIN): 
-		self._showWinScreen()
-	else: 
-		self._showLoseScreen()	
-	
-func _showWinScreen():
-	%RichTextLabel.text = winText
-	
-func _showLoseScreen():
-	%RichTextLabel.text = loseText
+	$FinalTimeLabel.text = Globals.get_formulated_time_elapsed()
 	
 func onReloadGameSceneButtonPressed():
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://2D/TestPlayerLevel.tscn")
 
 func onMainMenuButtonPressed():
 	get_tree().change_scene_to_file(mainMenu)
