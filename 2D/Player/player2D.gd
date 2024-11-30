@@ -83,8 +83,7 @@ func _handleMovement(delta):
 			_change_state(State.TECH)
 			print("Tech successful!")
 		else:
-			_change_state(State.DEAD)
-			_die()
+			velocity.x /= 4
 		move_and_slide()
 		return
 	
