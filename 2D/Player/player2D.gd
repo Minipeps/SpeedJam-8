@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var MAX_FALL_HEIGHT = 32
 @export var GRAVITY_FACTOR = 1
 @export var TECH_TOLERANCE_TIME = 0.1
+@export var TECH_ANIMATION_TOLERANCE_TIME = 0.3
 
 signal on_player_death
 
@@ -29,12 +30,17 @@ var leftTheFloor: bool = false
 var heightWhenLeavingFloor: float
 var isDead: bool = false
 @onready var techTimer: Timer = $TechTimer
+@onready var techAnimationTimer: Timer = $TechAnimationTimer
 var attemptingTech: bool = false
 
 func _ready():
 	techTimer.set_one_shot(true)
 	techTimer.set_wait_time(TECH_TOLERANCE_TIME)
 	techTimer.timeout.connect(_on_tech_timer_elapsed)
+	
+	techAnimationTimer.set_one_shot(true)
+	techAnimationTimer.set_wait_time(TECH_ANIMATION_TOLERANCE_TIME)
+	techAnimationTimer.timeout.connect(_reset_color)
 
 func reset_player():
 	isDead = false
@@ -177,7 +183,16 @@ func _on_rolling_state_entered():
 	animatedSprite.play("rolling")
 
 func _on_tech_state_entered():
+	techAnimationTimer.start()
+	_apply_tech_color()
 	pass
 
 func _on_dead_state_entered():
 	animatedSprite.play("death")
+	
+func _reset_color():
+	$AnimatedSprite2D.modulate = Color(1., 1., 1.)
+
+func _apply_tech_color():
+	var normalized = techAnimationTimer.time_left / techAnimationTimer.wait_time
+	$AnimatedSprite2D.modulate.v = normalized*15.

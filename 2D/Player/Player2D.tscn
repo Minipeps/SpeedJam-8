@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dd7l84o2i7fri" path="res://Sprites/Player/skaterkick.png" id="5_nqwwa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_75ww0"]
-radius = 8.0
-height = 32.0
+radius = 9.0
+height = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ykgd"]
 atlas = ExtResource("2_wj8ju")
@@ -196,11 +196,15 @@ MAX_FALL_HEIGHT = 64
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_75ww0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_glvm2")
 animation = &"preparejump"
 
 [node name="TechTimer" type="Timer" parent="."]
+
+[node name="TechAnimationTimer" type="Timer" parent="."]
