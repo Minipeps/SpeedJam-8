@@ -9,6 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	update_speedCounter()
 	pass
 	
 func _input(event):
@@ -25,3 +26,6 @@ func load_last_checkpoint():
 		$Player2d.position = LAST_CHECKPOINT.position
 		$Player2d.reset_player()
 		LAST_CHECKPOINT = null
+	
+func update_speedCounter():
+	$CanvasLayer/SpeedCounter.SPEED_TO_DISPLAY = $Player2d.velocity.x
