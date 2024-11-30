@@ -215,5 +215,3 @@ animation = &"preparejump"
 [node name="LoadingJumpTimer" type="Timer" parent="."]
 
 [node name="FallAnimationTimer" type="Timer" parent="."]
-
-[node name="SparkleTimer" type="Timer" parent="."]

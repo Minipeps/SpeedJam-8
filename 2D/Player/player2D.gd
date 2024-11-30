@@ -10,7 +10,7 @@ extends CharacterBody2D
 @export var FALL_FACTOR = 4
 @export var TECH_TOLERANCE_TIME = 0.1
 @export var FLASH_TIME = 0.2
-@export var SPARkLE_TIME = 0.2
+@export var SPEED_FOR_SPARKLE = 50
 
 signal on_player_death
 
@@ -38,7 +38,6 @@ var isDead: bool = false
 @onready var techAnimationTimer: Timer = $TechAnimationTimer
 @onready var fallAnimationTimer: Timer = $FallAnimationTimer
 @onready var flyingTimer: Timer = $FlyingTimer
-@onready var sparkleTimer: Timer = $SparkleTimer
 var attemptingTech: bool = false
 
 func _ready():
@@ -59,10 +58,6 @@ func _ready():
 	
 	flyingTimer.set_one_shot(true)
 	flyingTimer.set_wait_time(MAX_JUMP_DURATION)
-	
-	sparkleTimer.set_one_shot(true)
-	sparkleTimer.set_wait_time(SPARkLE_TIME)
-	sparkleTimer.timeout.connect(_stop_sparkling)
 
 func reset_player():
 	isDead = false
@@ -79,7 +74,7 @@ func _on_tech_timer_elapsed():
 
 func _physics_process(delta):
 	print(velocity.x)
-	if velocity.x < 50:
+	if velocity.x > SPEED_FOR_SPARKLE:
 		_start_sparkling()
 	else:
 		_stop_sparkling()
@@ -246,10 +241,12 @@ func _apply_fall_color():
 	$AnimatedSprite2D.modulate = Color(1., normalized, 1.)
 	
 func _start_sparkling():
-	$Sparkle.amount = 30
+	if not $Sparkle.visible:
+		$Sparkle.visible = true
 
 func _stop_sparkling():
-	$Sparkle.amount = 0
+	if $Sparkle.visible:
+		$Sparkle.visible = false
 
 func _state_to_string(state: State) -> String:
 	if state == State.IDLE:
