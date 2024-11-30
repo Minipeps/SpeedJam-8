@@ -202,3 +202,5 @@ shape = SubResource("CapsuleShape2D_75ww0")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_glvm2")
 animation = &"preparejump"
+
+[node name="TechTimer" type="Timer" parent="."]

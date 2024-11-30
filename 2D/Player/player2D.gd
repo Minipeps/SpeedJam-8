@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var FRICTION = 0.2
 @export var MAX_FALL_HEIGHT = 32
 @export var GRAVITY_FACTOR = 1
+@export var TECH_TOLERANCE_TIME = 0.1
 
 signal on_player_death
 
@@ -27,11 +28,26 @@ var currentState: State
 var leftTheFloor: bool = false
 var heightWhenLeavingFloor: float
 var isDead: bool = false
+@onready var techTimer: Timer = $TechTimer
+var attemptingTech: bool = false
+
+func _ready():
+	techTimer.set_one_shot(true)
+	techTimer.set_wait_time(TECH_TOLERANCE_TIME)
+	techTimer.timeout.connect(_on_tech_timer_elapsed)
 
 func reset_player():
 	isDead = false
 	leftTheFloor = false
 	velocity = Vector2.ZERO
+
+func _check_for_tech_attempt():
+	if Input.is_action_just_pressed("player_move_down"):
+		techTimer.start()
+		attemptingTech = true
+
+func _on_tech_timer_elapsed():
+	attemptingTech = false
 
 func _physics_process(delta):
 	if not isDead:
@@ -40,6 +56,9 @@ func _physics_process(delta):
 func _handleMovement(delta):
 	# Add gravity
 	self.velocity.y += gravity * delta
+
+	# Check for tech
+	_check_for_tech_attempt()
 
 	# Do not update player velocity if we are not on the floor
 	if not is_on_floor():
@@ -52,8 +71,12 @@ func _handleMovement(delta):
 
 	# Check for death by fall
 	if _check_death_by_fall():
-		_change_state(State.DEAD)
-		_die()
+		if attemptingTech:
+			_change_state(State.TECH)
+			print("Tech successful!")
+		else:
+			_change_state(State.DEAD)
+			_die()
 		move_and_slide()
 		return
 	
