@@ -56,6 +56,8 @@ func _on_tech_timer_elapsed():
 	attemptingTech = false
 
 func _physics_process(delta):
+	if techAnimationTimer.is_stopped() == false:
+		_apply_tech_color()
 	if not isDead:
 		_handleMovement(delta)
 
@@ -187,7 +189,6 @@ func _on_rolling_state_entered():
 
 func _on_tech_state_entered():
 	techAnimationTimer.start()
-	_apply_tech_color()
 	pass
 
 func _on_dead_state_entered():
@@ -198,6 +199,7 @@ func _reset_color():
 
 func _apply_tech_color():
 	var normalized = techAnimationTimer.time_left / techAnimationTimer.wait_time
+	print(normalized)
 	$AnimatedSprite2D.modulate.v = normalized*15.
 
 func _state_to_string(state: State) -> String:
