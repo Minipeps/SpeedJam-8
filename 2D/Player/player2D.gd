@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED = 200.0
 @export var MAX_JUMP_VELOCITY = 300
-@export var TIME_TO_REACH_MAX_JUMP_VELOCITY = 1
+@export var TIME_TO_REACH_MAX_JUMP_VELOCITY = 1.
 @export var MAX_JUMP_DURATION = 3.
 @export var FRICTION = 0.2
 @export var MAX_FALL_HEIGHT = 32
