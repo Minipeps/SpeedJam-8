@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://d1dl5o2l103yq" path="res://Timer/Timer.tscn" id="4_a7a37"]
 [ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/checkpoint.tscn" id="5_bubwb"]
 [ext_resource type="PackedScene" uid="uid://hhg3splfg7rx" path="res://Parallax/Parallax.tscn" id="6_je5dk"]
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vog4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qm07n"]
