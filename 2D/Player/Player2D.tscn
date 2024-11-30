@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c7cx7wyya1ssx"]
+[gd_scene load_steps=29 format=3 uid="uid://c7cx7wyya1ssx"]
 
 [ext_resource type="Script" path="res://2D/Player/player2D.gd" id="1_53slt"]
 [ext_resource type="Texture2D" uid="uid://uba43eeiotb6" path="res://Sprites/Player/skaterrolling.png" id="2_5fncy"]
@@ -6,11 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://tcsiluao160v" path="res://Sprites/Player/skateridle.png" id="3_isijg"]
 [ext_resource type="Texture2D" uid="uid://yvmschnektsw" path="res://Sprites/Player/skaterjumping.png" id="4_4xa6s"]
 [ext_resource type="Texture2D" uid="uid://dd7l84o2i7fri" path="res://Sprites/Player/skaterkick.png" id="5_nqwwa"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_bx5c8"]
-size = Vector2(16, 32)
-
-[sub_resource type="MeshTexture" id="MeshTexture_gtqbt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_75ww0"]
 radius = 8.0
@@ -199,10 +194,6 @@ script = ExtResource("1_53slt")
 MAX_FALL_HEIGHT = 64
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-mesh = SubResource("QuadMesh_bx5c8")
-texture = SubResource("MeshTexture_gtqbt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_75ww0")

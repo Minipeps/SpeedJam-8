@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdvcv3bw5ysdy"]
+[gd_scene load_steps=7 format=3 uid="uid://bdvcv3bw5ysdy"]
 
 [ext_resource type="Script" path="res://2D/Level.gd" id="1_y5gdm"]
 [ext_resource type="Texture2D" uid="uid://dmc4g62t0md67" path="res://Sprites/Tileset/tileset_roof.png" id="2_0sl3k"]
 [ext_resource type="PackedScene" uid="uid://c7cx7wyya1ssx" path="res://2D/Player/Player2D.tscn" id="3_dohc5"]
+[ext_resource type="PackedScene" uid="uid://d1dl5o2l103yq" path="res://Timer/Timer.tscn" id="4_a7a37"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qm07n"]
 texture = ExtResource("2_0sl3k")
@@ -129,3 +130,11 @@ layer_0/tile_data = PackedInt32Array(1179648, 0, 0, 1179649, 65536, 0, 1179650, 
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(0, 288, 112, 289, 177, 256, 207, 224, 344, 225, 433, 224, 433, 234, 514, 272, 624, 272, 626, 367, 0, 368)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Timer" parent="CanvasLayer" instance=ExtResource("4_a7a37")]
+offset_left = -5.0
+offset_top = -12.0
+offset_right = -5.0
+offset_bottom = -12.0
