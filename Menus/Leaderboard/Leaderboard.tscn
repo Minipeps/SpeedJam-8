@@ -1,0 +1,149 @@
+[gd_scene load_steps=5 format=3 uid="uid://byught834a32d"]
+
+[ext_resource type="Script" path="res://Menus/Leaderboard/leaderboard.gd" id="1_2h0kb"]
+[ext_resource type="FontFile" uid="uid://bjecg0boqyvj5" path="res://Font/GrapeSoda.ttf" id="1_bleeq"]
+[ext_resource type="LabelSettings" uid="uid://3587hfpxonie" path="res://Menus/Leaderboard/entryLabelSettings.tres" id="1_ty58p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8o6po"]
+font = ExtResource("1_bleeq")
+font_size = 32
+
+[node name="Leaderboard" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2h0kb")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 42.0
+grow_horizontal = 2
+text = "Leaderboard"
+label_settings = SubResource("LabelSettings_8o6po")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="ColorRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 50.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(300, 150)
+color = Color(0.111197, 0.111197, 0.111197, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(260, 130)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+
+[node name="TitleUsername" type="Label" parent="Panel/VBoxContainer/Header"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 20.0
+text = "Username"
+label_settings = ExtResource("1_ty58p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleTime" type="Label" parent="Panel/VBoxContainer/Header"]
+layout_mode = 0
+offset_left = 300.0
+offset_right = 600.0
+offset_bottom = 20.0
+text = "Time"
+label_settings = ExtResource("1_ty58p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Panel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -2.635
+offset_right = 1.365
+grow_vertical = 2
+
+[node name="VSeparator2" type="VSeparator" parent="Panel"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = 2.0
+offset_bottom = -0.865005
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator3" type="VSeparator" parent="Panel"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = 2.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 17.305
+offset_bottom = 21.305
+grow_horizontal = 2
+
+[node name="HSeparator3" type="HSeparator" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 110.0
+offset_bottom = 35.0
+text = "Back to Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_back_to_menu_button_pressed"]
