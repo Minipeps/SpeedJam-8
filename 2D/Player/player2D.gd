@@ -60,7 +60,7 @@ func _handleMovement(delta):
 	if direction.x != 0:
 		self.velocity.x += direction.x * SPEED * delta
 		_change_state(State.KICKING)
-	elif abs(velocity.x) > 0:
+	elif abs(velocity.x) > 1:
 		_change_state(State.ROLLING)
 	else:
 		_change_state(State.IDLE)
@@ -79,6 +79,7 @@ func _change_state(newState: State):
 		return
 	
 	currentState = newState
+	print("newState: ", newState)
 	
 	if newState == State.IDLE:
 		_on_idle_state_entered()
