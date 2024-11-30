@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c7cx7wyya1ssx"]
+[gd_scene load_steps=30 format=3 uid="uid://c7cx7wyya1ssx"]
 
 [ext_resource type="Script" path="res://2D/Player/player2D.gd" id="1_53slt"]
 [ext_resource type="Texture2D" uid="uid://uba43eeiotb6" path="res://Sprites/Player/skaterrolling.png" id="2_5fncy"]
@@ -43,14 +43,6 @@ region = Rect2(32, 0, 16, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dj60"]
 atlas = ExtResource("4_4xa6s")
 region = Rect2(48, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b4uid"]
-atlas = ExtResource("4_4xa6s")
-region = Rect2(64, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wwwuh"]
-atlas = ExtResource("4_4xa6s")
-region = Rect2(80, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epecw"]
 atlas = ExtResource("5_nqwwa")
@@ -121,6 +113,11 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"falling",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8ry5r")
@@ -133,14 +130,8 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5dj60")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b4uid")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wwwuh")
 }],
-"loop": true,
+"loop": false,
 "name": &"jumping",
 "speed": 5.0
 }, {
@@ -206,4 +197,4 @@ shape = SubResource("CapsuleShape2D_75ww0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_glvm2")
-animation = &"kick"
+animation = &"jumping"

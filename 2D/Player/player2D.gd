@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 200.0
-const JUMP_VELOCITY = 200
+const JUMP_VELOCITY = 300
 const FRICTION = 0.2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -14,6 +14,7 @@ enum State {
 	JUMPING,
 	KICKING,
 	ROLLING,
+	FALLING,
 	DEAD
 }
 var currentState: State
@@ -36,6 +37,8 @@ func _handleMovement(delta):
 
 	# Do not update player velocity if we are not on the floor
 	if not is_on_floor():
+		if self.velocity.y >= 0:
+			_change_state(State.FALLING)
 		move_and_slide()
 		return
 	
@@ -45,7 +48,6 @@ func _handleMovement(delta):
 		_change_state(State.JUMPING)
 		move_and_slide()
 		return
-
 	# Accelerate/deccelerate on slopes
 	var floor_normal = get_floor_normal()
 	if abs(floor_normal.x) > 1e-3:
@@ -89,20 +91,31 @@ func _change_state(newState: State):
 		_on_kicking_state_entered()
 	elif newState == State.ROLLING:
 		_on_rolling_state_entered()
+	elif newState == State.FALLING:
+		_on_falling_state_entered()
 	elif newState == State.DEAD:
 		_on_dead_state_entered()
 
 func _on_idle_state_entered():
+	animatedSprite.play("idle")
 	pass
 	
 func _on_jumping_state_entered():
+	animatedSprite.play("jumping")
+	pass
+	
+func _on_falling_state_entered():
+	animatedSprite.play("falling")
 	pass
 	
 func _on_kicking_state_entered():
+	animatedSprite.play("kick")
 	pass
 	
 func _on_rolling_state_entered():
+	animatedSprite.play("rolling")
 	pass
 	
 func _on_dead_state_entered():
+	animatedSprite.play("death")
 	pass
