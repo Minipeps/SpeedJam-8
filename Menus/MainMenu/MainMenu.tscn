@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx5tqqwvb5tyc"]
+[gd_scene load_steps=4 format=3 uid="uid://cx5tqqwvb5tyc"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu/MainMenu.gd" id="1_vk5ut"]
 [ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/MainMenu/640px-Opossum_1.jpg" id="2_r8l7y"]
-[ext_resource type="PackedScene" uid="uid://hhg3splfg7rx" path="res://Parallax/Parallax.tscn" id="3_1t8eu"]
 
 [sub_resource type="GDScript" id="GDScript_cxd8h"]
 
@@ -47,8 +46,6 @@ text = "How To Play"
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
-
-[node name="Parallax" parent="." instance=ExtResource("3_1t8eu")]
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="onStartButtonPressed"]
 [connection signal="pressed" from="VBoxContainer/TutorialButton" to="." method="onTutorialButtonPressed"]
