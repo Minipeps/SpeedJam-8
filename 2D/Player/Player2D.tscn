@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7cx7wyya1ssx"]
+
+[ext_resource type="Script" path="res://2D/Player/player2D.gd" id="1_53slt"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_bx5c8"]
+size = Vector2(16, 32)
+
+[sub_resource type="MeshTexture" id="MeshTexture_gtqbt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_75ww0"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t00lw"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Player2d" type="CharacterBody2D"]
+script = ExtResource("1_53slt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("QuadMesh_bx5c8")
+texture = SubResource("MeshTexture_gtqbt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_75ww0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t00lw")
+animation = &"idle"
