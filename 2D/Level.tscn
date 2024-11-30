@@ -125,10 +125,11 @@ position = Vector2(-265, 18)
 [node name="Player2d" parent="." instance=ExtResource("3_dohc5")]
 position = Vector2(55, 272)
 floor_max_angle = 0.991347
-SPEED = 600.0
+SPEED = 100.0
 JUMP_VELOCITY = 400
 GRAVITY_FACTOR = 4
-TECH_TOLERANCE_TIME = 0.05
+FALL_FACTOR = 2000
+TECH_ANIMATION_TOLERANCE_TIME = 0.5
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -143,7 +144,7 @@ layer_0/tile_data = PackedInt32Array(1179648, 0, 0, 1179649, 65536, 0, 1179650, 
 polygon = PackedVector2Array(0, 288, 112, 289, 177, 256, 207, 224, 344, 225, 433, 224, 433, 234, 514, 272, 624, 272, 653, 288, 626, 367, 0, 368)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(689, 367, 914, 368, 1008, 273, 1058, 323, 1089, 292, 1119, 321, 1312, 417, 1329, 417, 1361, 385, 1471, 384, 1348, 427, 1298, 424, 1231, 393, 949, 386, 689, 385)
+polygon = PackedVector2Array(689, 367, 914, 368, 1008, 273, 1072, 337, 1104, 306, 1119, 321, 1312, 417, 1329, 417, 1361, 385, 1471, 384, 1348, 427, 1298, 424, 1231, 393, 949, 386, 689, 385)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(545, 449, 1248, 449, 1377, 577, 1829, 576, 1952, 512, 1918, 681, 1308, 657, 544, 464)

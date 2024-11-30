@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dd7l84o2i7fri" path="res://Sprites/Player/skaterkick.png" id="5_nqwwa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_75ww0"]
-radius = 9.0
-height = 20.0
+radius = 8.0
+height = 22.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ykgd"]
 atlas = ExtResource("2_wj8ju")
@@ -191,7 +191,7 @@ animations = [{
 
 [node name="Player2d" type="CharacterBody2D"]
 script = ExtResource("1_53slt")
-MAX_FALL_HEIGHT = 64
+MAX_FALL_HEIGHT = 5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

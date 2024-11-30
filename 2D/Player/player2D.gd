@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var FRICTION = 0.2
 @export var MAX_FALL_HEIGHT = 32
 @export var GRAVITY_FACTOR = 1
+@export var FALL_FACTOR = 4
 @export var TECH_TOLERANCE_TIME = 0.1
 @export var TECH_ANIMATION_TOLERANCE_TIME = 0.3
 
@@ -83,7 +84,7 @@ func _handleMovement(delta):
 			_change_state(State.TECH)
 			print("Tech successful!")
 		else:
-			velocity.x /= 4
+			velocity.x /= FALL_FACTOR
 		move_and_slide()
 		return
 	
@@ -198,7 +199,6 @@ func _reset_color():
 
 func _apply_tech_color():
 	var normalized = techAnimationTimer.time_left / techAnimationTimer.wait_time
-	print(normalized)
 	$AnimatedSprite2D.modulate.v = normalized*15.
 
 func _state_to_string(state: State) -> String:
