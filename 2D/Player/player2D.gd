@@ -111,6 +111,8 @@ func _change_state(newState: State):
 	
 	if newState == State.IDLE:
 		_on_idle_state_entered()
+	elif newState == State.PREPARE_JUMP:
+		_on_prepare_jump_state_entered()
 	elif newState == State.JUMPING:
 		_on_jumping_state_entered()
 	elif newState == State.KICKING:
@@ -124,24 +126,21 @@ func _change_state(newState: State):
 
 func _on_idle_state_entered():
 	animatedSprite.play("idle")
+
+func _on_prepare_jump_state_entered():
 	pass
-	
+
 func _on_jumping_state_entered():
 	animatedSprite.play("jumping")
-	pass
 	
 func _on_falling_state_entered():
 	animatedSprite.play("falling")
-	pass
 	
 func _on_kicking_state_entered():
 	animatedSprite.play("kick")
-	pass
 	
 func _on_rolling_state_entered():
 	animatedSprite.play("rolling")
-	pass
 	
 func _on_dead_state_entered():
 	animatedSprite.play("death")
-	pass
