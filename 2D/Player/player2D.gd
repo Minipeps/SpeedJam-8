@@ -9,9 +9,9 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animatedSprite : AnimatedSprite2D;
 
-
 enum State {
 	IDLE,
+	PREPARE_JUMP,
 	JUMPING,
 	KICKING,
 	ROLLING,
@@ -55,7 +55,10 @@ func _handleMovement(delta):
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("player_move_up"):
+		_change_state(State.PREPARE_JUMP)
+	elif Input.is_action_just_released("player_move_up"):
 		self.velocity.y = -JUMP_VELOCITY
+		_leave_floor()
 		_change_state(State.JUMPING)
 		move_and_slide()
 		return
