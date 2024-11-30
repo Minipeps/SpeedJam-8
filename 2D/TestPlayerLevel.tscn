@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdvcv3bw5ysdy"]
+[gd_scene load_steps=11 format=3 uid="uid://bdvcv3bw5ysdy"]
 
 [ext_resource type="PackedScene" uid="uid://hhg3splfg7rx" path="res://Parallax/Parallax.tscn" id="1_6kcr6"]
 [ext_resource type="Script" path="res://2D/Level.gd" id="1_q10ro"]
 [ext_resource type="PackedScene" uid="uid://c7cx7wyya1ssx" path="res://2D/Player/Player2D.tscn" id="2_h8e3e"]
-[ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/CheckPoint.tscn" id="2_hkyd4"]
+[ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/checkpoint.tscn" id="2_hkyd4"]
 [ext_resource type="PackedScene" uid="uid://d1dl5o2l103yq" path="res://Timer/Timer.tscn" id="5_6qi12"]
-[ext_resource type="PackedScene" uid="uid://6h4usr1uhwey" path="res://Checkpoint/LevelEnd.tscn" id="6_5mrqa"]
+[ext_resource type="PackedScene" path="res://Checkpoint/LevelEnd.tscn" id="6_5mrqa"]
+[ext_resource type="PackedScene" path="res://Timer/speed_counter.tscn" id="6_eyp6o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc0ds"]
 size = Vector2(640, 200)
@@ -103,6 +104,8 @@ position = Vector2(979, 175)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Timer" parent="CanvasLayer" instance=ExtResource("5_6qi12")]
+
+[node name="SpeedCounter" parent="CanvasLayer" instance=ExtResource("6_eyp6o")]
 
 [node name="LevelEnd" parent="." instance=ExtResource("6_5mrqa")]
 position = Vector2(1188, 149)
