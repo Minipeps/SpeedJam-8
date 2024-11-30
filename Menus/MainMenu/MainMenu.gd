@@ -1,7 +1,7 @@
 extends Control
 
 @onready var tutorialScene = load("res://Menus/Tutorial/Tutorial.tscn")
-@export var testLevel = "res://Levels/TestLevel/TestLevel.tscn"
+@export var testLevel = "res://2D/TestPlayerLevel.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +12,7 @@ func _initialize():
 
 func onStartButtonPressed():
 	get_tree().change_scene_to_file(testLevel)
-	print("start button pressed: first scene" + testLevel)	
+	print("start button pressed: first scene" + testLevel)
 
 func onTutorialButtonPressed():
 	var tutorialSceneInstance = tutorialScene.instantiate()
@@ -21,3 +21,6 @@ func onTutorialButtonPressed():
 
 func onQuitButtonPressed():
 	get_tree().quit()
+
+func onLeaderboardPressed():
+	get_tree().change_scene_to_file("res://Menus/Leaderboard/Leaderboard.tscn")

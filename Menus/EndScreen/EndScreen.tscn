@@ -1,15 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://4uepyvot3h3y"]
+[gd_scene load_steps=5 format=3 uid="uid://4uepyvot3h3y"]
 
 [ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/MainMenu/640px-Opossum_1.jpg" id="1_axm2g"]
 [ext_resource type="Script" path="res://Menus/EndScreen/EndScreen.gd" id="1_ulwhw"]
+[ext_resource type="LabelSettings" uid="uid://3587hfpxonie" path="res://Menus/Leaderboard/entryLabelSettings.tres" id="3_6xqd3"]
+[ext_resource type="Theme" uid="uid://cwy2cn6v5ovu3" path="res://Theme/ThemeCustom.tres" id="4_wmbbw"]
 
 [node name="EndScreen" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_wmbbw")
 script = ExtResource("1_ulwhw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -21,6 +25,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_axm2g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -153.5
+offset_top = 90.0
+offset_right = 153.5
+offset_bottom = 120.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Enter username: "
+label_settings = ExtResource("3_6xqd3")
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+text = "Anonymous"
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Save"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -38,17 +68,20 @@ grow_vertical = 2
 
 [node name="ReloadGameButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme = ExtResource("4_wmbbw")
 text = "Reload game"
+
+[node name="GoToLeaderboard" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_wmbbw")
+text = "View Leaderboard"
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
 text = "Back to main menu"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
 text = "Quit game"
 
 [node name="FinalTimeLabel" type="Label" parent="."]
@@ -64,6 +97,7 @@ offset_right = 77.64
 offset_bottom = 13.42
 theme_override_font_sizes/font_size = 14
 text = "00:00:00"
+label_settings = ExtResource("3_6xqd3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -80,9 +114,12 @@ offset_right = 15.64
 offset_bottom = 13.42
 theme_override_font_sizes/font_size = 14
 text = "Your time :"
+label_settings = ExtResource("3_6xqd3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="onSaveButtonPressed"]
 [connection signal="pressed" from="VBoxContainer/ReloadGameButton" to="." method="onReloadGameSceneButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/GoToLeaderboard" to="." method="onLeaderboardButtonPressed"]
 [connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="onMainMenuButtonPressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="onQuitButtonPressed"]

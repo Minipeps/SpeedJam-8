@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6j5oeyoxagrq"]
+
+[ext_resource type="LabelSettings" uid="uid://3587hfpxonie" path="res://Menus/Leaderboard/entryLabelSettings.tres" id="1_5qhci"]
+[ext_resource type="Script" path="res://Menus/Leaderboard/entry.gd" id="1_oo7q7"]
+
+[node name="Entry" type="Control"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_oo7q7")
+
+[node name="Username" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 190.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "TestUser"
+label_settings = ExtResource("1_5qhci")
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "00:00:00"
+label_settings = ExtResource("1_5qhci")
+horizontal_alignment = 2
+vertical_alignment = 1
