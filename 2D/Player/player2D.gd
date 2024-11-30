@@ -126,9 +126,10 @@ func _change_state(newState: State):
 		_on_dead_state_entered()
 
 func _on_idle_state_entered():
-	animatedSprite.play("idle")
+	animatedSprite.play("default")
 
 func _on_prepare_jump_state_entered():
+	animatedSprite.play("preparejump")
 	pass
 
 func _on_jumping_state_entered():
