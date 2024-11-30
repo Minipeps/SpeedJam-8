@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-const SPEED = 200.0
-const JUMP_VELOCITY = 300
-const FRICTION = 0.2
+@export var SPEED = 200.0
+@export var JUMP_VELOCITY = 300
+@export var FRICTION = 0.2
+@export var MAX_FALL_HEIGHT = 32
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -18,6 +19,8 @@ enum State {
 	DEAD
 }
 var currentState: State
+var leftTheFloor: bool = false
+var heightWhenLeavingFloor: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,8 +40,16 @@ func _handleMovement(delta):
 
 	# Do not update player velocity if we are not on the floor
 	if not is_on_floor():
+		if not leftTheFloor:
+			_leave_floor()
 		if self.velocity.y >= 0:
 			_change_state(State.FALLING)
+		move_and_slide()
+		return
+
+	# Check for death by fall
+	if _check_death_by_fall():
+		_change_state(State.DEAD)
 		move_and_slide()
 		return
 	
@@ -75,6 +86,18 @@ func _apply_friction(delta):
 		self.velocity.x -= FRICTION * SPEED * delta
 	elif (velocity.x < 0):
 		self.velocity.x += FRICTION * SPEED * delta
+
+func _leave_floor():
+	heightWhenLeavingFloor = position.y
+	leftTheFloor = true
+
+func _check_death_by_fall() -> bool:
+	# Player already on the floor
+	if not leftTheFloor:
+		return false
+	# Check against latest height on floor
+	leftTheFloor = false
+	return position.y > heightWhenLeavingFloor
 
 func _change_state(newState: State):
 	if newState == currentState:
