@@ -21,3 +21,6 @@ func onTutorialButtonPressed():
 
 func onQuitButtonPressed():
 	get_tree().quit()
+
+func onLeaderboardPressed():
+	get_tree().change_scene_to_file("res://Menus/Leaderboard/Leaderboard.tscn")

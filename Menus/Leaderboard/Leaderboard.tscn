@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://byught834a32d"]
+[gd_scene load_steps=6 format=3 uid="uid://byught834a32d"]
 
+[ext_resource type="Theme" uid="uid://cwy2cn6v5ovu3" path="res://Theme/ThemeCustom.tres" id="1_1ulb8"]
 [ext_resource type="Script" path="res://Menus/Leaderboard/leaderboard.gd" id="1_2h0kb"]
 [ext_resource type="FontFile" uid="uid://bjecg0boqyvj5" path="res://Font/GrapeSoda.ttf" id="1_bleeq"]
 [ext_resource type="LabelSettings" uid="uid://3587hfpxonie" path="res://Menus/Leaderboard/entryLabelSettings.tres" id="1_ty58p"]
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_1ulb8")
 script = ExtResource("1_2h0kb")
 
 [node name="Label" type="Label" parent="."]
@@ -57,13 +59,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Header" type="Control" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(300, 20)
+custom_minimum_size = Vector2(340, 20)
 layout_mode = 2
 
 [node name="TitleUsername" type="Label" parent="Panel/VBoxContainer/Header"]
 texture_filter = 1
 layout_mode = 0
-offset_right = 300.0
+offset_right = 260.0
 offset_bottom = 20.0
 text = "Username"
 label_settings = ExtResource("1_ty58p")
@@ -73,7 +75,7 @@ vertical_alignment = 1
 [node name="TitleTime" type="Label" parent="Panel/VBoxContainer/Header"]
 layout_mode = 0
 offset_left = 300.0
-offset_right = 600.0
+offset_right = 560.0
 offset_bottom = 20.0
 text = "Time"
 label_settings = ExtResource("1_ty58p")
@@ -140,9 +142,9 @@ grow_vertical = 0
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
-offset_left = 10.0
+offset_left = 20.0
 offset_top = 10.0
-offset_right = 110.0
+offset_right = 120.0
 offset_bottom = 35.0
 text = "Back to Menu"
 

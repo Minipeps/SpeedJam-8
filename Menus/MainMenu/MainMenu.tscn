@@ -45,10 +45,15 @@ script = SubResource("GDScript_cxd8h")
 layout_mode = 2
 text = "How To Play"
 
+[node name="Leaderboard" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Leaderboard"
+
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="onStartButtonPressed"]
 [connection signal="pressed" from="VBoxContainer/TutorialButton" to="." method="onTutorialButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/Leaderboard" to="." method="onLeaderboardPressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="onQuitButtonPressed"]
