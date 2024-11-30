@@ -26,6 +26,7 @@ func restart_timer():
 	start_timer()
 
 func update_timer_label(time_elapsed):
-	var seconds : int = fmod(time_elapsed,60.0)
 	var minutes : int = time_elapsed / 60.0
-	$Label.text = "%02d:%02d" % [minutes, seconds]
+	var seconds : int = fmod(time_elapsed, 60.0)
+	var microseconds : int = (time_elapsed - int(time_elapsed)) * 100
+	$Label.text = "%02d:%02d:%02d" % [minutes, seconds, microseconds]
