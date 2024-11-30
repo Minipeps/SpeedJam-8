@@ -74,6 +74,12 @@ display_end_screen_lose={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Floor"
+2d_physics/layer_3="Checkpoint"
+
 [rendering]
 
 2d/snap/snap_2d_transforms_to_pixel=true

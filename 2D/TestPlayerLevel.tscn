@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdvcv3bw5ysdy"]
+[gd_scene load_steps=6 format=3 uid="uid://bdvcv3bw5ysdy"]
 
 [ext_resource type="PackedScene" uid="uid://c7cx7wyya1ssx" path="res://2D/Player/Player2D.tscn" id="2_h8e3e"]
+[ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/checkpoint.tscn" id="2_hkyd4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc0ds"]
 size = Vector2(640, 200)
@@ -14,10 +15,12 @@ size = Vector2(640, 200)
 
 [node name="Player2d" parent="." instance=ExtResource("2_h8e3e")]
 position = Vector2(304, 148)
+collision_mask = 6
 floor_stop_on_slope = false
 
 [node name="TestFloor" type="StaticBody2D" parent="."]
 position = Vector2(300, 300)
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestFloor"]
 shape = SubResource("RectangleShape2D_qc0ds")
@@ -30,6 +33,7 @@ mesh = SubResource("QuadMesh_iiger")
 
 [node name="TestFloor3" type="StaticBody2D" parent="."]
 position = Vector2(900, 300)
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestFloor3"]
 shape = SubResource("RectangleShape2D_qc0ds")
@@ -42,6 +46,7 @@ mesh = SubResource("QuadMesh_iiger")
 
 [node name="TestFloor2" type="StaticBody2D" parent="."]
 position = Vector2(900, 300)
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="TestFloor2"]
 position = Vector2(-322, -100)
@@ -81,3 +86,6 @@ mesh = SubResource("QuadMesh_52xqb")
 position = Vector2(-160, -174)
 scale = Vector2(20, 10.25)
 mesh = SubResource("QuadMesh_52xqb")
+
+[node name="Checkpoint" parent="." instance=ExtResource("2_hkyd4")]
+position = Vector2(403, 175)
