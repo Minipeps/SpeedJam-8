@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdvcv3bw5ysdy"]
+
+[ext_resource type="PackedScene" uid="uid://c7cx7wyya1ssx" path="res://2D/Player/Player2D.tscn" id="2_h8e3e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qc0ds"]
+size = Vector2(640, 200)
+
+[sub_resource type="QuadMesh" id="QuadMesh_iiger"]
+size = Vector2(640, 200)
+
+[sub_resource type="QuadMesh" id="QuadMesh_52xqb"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Player2d" parent="." instance=ExtResource("2_h8e3e")]
+position = Vector2(304, 148)
+floor_stop_on_slope = false
+
+[node name="TestFloor" type="StaticBody2D" parent="."]
+position = Vector2(300, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestFloor"]
+shape = SubResource("RectangleShape2D_qc0ds")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="TestFloor"]
+mesh = SubResource("QuadMesh_iiger")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="TestFloor"]
+mesh = SubResource("QuadMesh_iiger")
+
+[node name="TestFloor3" type="StaticBody2D" parent="."]
+position = Vector2(900, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestFloor3"]
+shape = SubResource("RectangleShape2D_qc0ds")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="TestFloor3"]
+mesh = SubResource("QuadMesh_iiger")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="TestFloor3"]
+mesh = SubResource("QuadMesh_iiger")
+
+[node name="TestFloor2" type="StaticBody2D" parent="."]
+position = Vector2(900, 300)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="TestFloor2"]
+position = Vector2(-322, -100)
+polygon = PackedVector2Array(21, 0, 253, 2, 163, -88)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="TestFloor2"]
+position = Vector2(-179.938, -106.875)
+scale = Vector2(194.125, 10.25)
+mesh = SubResource("QuadMesh_52xqb")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="TestFloor2"]
+position = Vector2(-181.531, -118)
+scale = Vector2(163.063, 10.25)
+mesh = SubResource("QuadMesh_52xqb")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="TestFloor2"]
+position = Vector2(-176.266, -129)
+scale = Vector2(138.531, 10.25)
+mesh = SubResource("QuadMesh_52xqb")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="TestFloor2"]
+position = Vector2(-172.133, -141)
+scale = Vector2(104.266, 10.25)
+mesh = SubResource("QuadMesh_52xqb")
+
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="TestFloor2"]
+position = Vector2(-169.066, -152)
+scale = Vector2(76.1329, 10.25)
+mesh = SubResource("QuadMesh_52xqb")
+
+[node name="MeshInstance2D6" type="MeshInstance2D" parent="TestFloor2"]
+position = Vector2(-164.033, -163)
+scale = Vector2(42.0664, 10.25)
+mesh = SubResource("QuadMesh_52xqb")
+
+[node name="MeshInstance2D7" type="MeshInstance2D" parent="TestFloor2"]
+position = Vector2(-160, -174)
+scale = Vector2(20, 10.25)
+mesh = SubResource("QuadMesh_52xqb")
