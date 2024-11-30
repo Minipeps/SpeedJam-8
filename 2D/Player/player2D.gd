@@ -102,9 +102,9 @@ func _handleMovement(delta):
 	var direction = Vector2(horizontal_input, 0).normalized()
 	if direction.x != 0:
 		self.velocity.x += direction.x * SPEED * delta
-		_change_state(State.KICKING)
+		_change_state_conditional(State.KICKING, currentState != State.PREPARE_JUMP)
 	elif abs(velocity.x) > 1:
-		_change_state(State.ROLLING)
+		_change_state_conditional(State.ROLLING, currentState != State.PREPARE_JUMP)
 	else:
 		_change_state(State.IDLE)
 
@@ -157,12 +157,15 @@ func _change_state(newState: State):
 	elif newState == State.DEAD:
 		_on_dead_state_entered()
 
+func _change_state_conditional(newState: State, condition: bool):
+	if condition:
+		_change_state(newState)
+
 func _on_idle_state_entered():
 	animatedSprite.play("default")
 
 func _on_prepare_jump_state_entered():
 	animatedSprite.play("preparejump")
-	pass
 
 func _on_jumping_state_entered():
 	animatedSprite.play("jumping")
