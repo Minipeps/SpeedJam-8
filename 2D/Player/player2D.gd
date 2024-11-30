@@ -5,9 +5,11 @@ extends CharacterBody2D
 @export var FRICTION = 0.2
 @export var MAX_FALL_HEIGHT = 32
 
+signal on_player_death
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var animatedSprite : AnimatedSprite2D;
+@onready var animatedSprite : AnimatedSprite2D = $AnimatedSprite2D;
 
 enum State {
 	IDLE,
@@ -18,21 +20,15 @@ enum State {
 	FALLING,
 	DEAD
 }
+
 var currentState: State
 var leftTheFloor: bool = false
 var heightWhenLeavingFloor: float
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	animatedSprite = $AnimatedSprite2D
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var isDead: bool = false
 
 func _physics_process(delta):
-	_handleMovement(delta)
+	if not isDead:
+		_handleMovement(delta)
 
 func _handleMovement(delta):
 	# Add gravity
@@ -50,6 +46,7 @@ func _handleMovement(delta):
 	# Check for death by fall
 	if _check_death_by_fall():
 		_change_state(State.DEAD)
+		_die()
 		move_and_slide()
 		return
 	
@@ -100,7 +97,11 @@ func _check_death_by_fall() -> bool:
 		return false
 	# Check against latest height on floor
 	leftTheFloor = false
-	return position.y > heightWhenLeavingFloor
+	return (position.y - heightWhenLeavingFloor) > MAX_FALL_HEIGHT
+
+func _die():
+	isDead = true
+	on_player_death.emit()
 
 func _change_state(newState: State):
 	if newState == currentState:

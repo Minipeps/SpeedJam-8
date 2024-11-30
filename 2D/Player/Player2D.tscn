@@ -184,6 +184,7 @@ animations = [{
 
 [node name="Player2d" type="CharacterBody2D"]
 script = ExtResource("1_53slt")
+MAX_FALL_HEIGHT = 64
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
