@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dmc4g62t0md67" path="res://Sprites/Tileset/tileset_roof.png" id="2_0sl3k"]
 [ext_resource type="PackedScene" uid="uid://c7cx7wyya1ssx" path="res://2D/Player/Player2D.tscn" id="3_dohc5"]
 [ext_resource type="PackedScene" uid="uid://d1dl5o2l103yq" path="res://Timer/Timer.tscn" id="4_a7a37"]
-[ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/checkpoint.tscn" id="5_bubwb"]
+[ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/CheckPoint.tscn" id="5_bubwb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qm07n"]
 texture = ExtResource("2_0sl3k")
