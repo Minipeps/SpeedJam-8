@@ -28,4 +28,5 @@ func load_last_checkpoint():
 		LAST_CHECKPOINT = null
 	
 func update_speedCounter():
-	$CanvasLayer/SpeedCounter.SPEED_TO_DISPLAY = $Player2d.velocity.x
+	if $CanvasLayer/SpeedCounter:
+		$CanvasLayer/SpeedCounter.SPEED_TO_DISPLAY = $Player2d.velocity.x

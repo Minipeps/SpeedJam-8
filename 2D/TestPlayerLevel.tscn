@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdvcv3bw5ysdy"]
+[gd_scene load_steps=14 format=3 uid="uid://bdvcv3bw5ysdy"]
 
 [ext_resource type="PackedScene" uid="uid://hhg3splfg7rx" path="res://Parallax/Parallax.tscn" id="1_6kcr6"]
 [ext_resource type="Script" path="res://2D/Level.gd" id="1_q10ro"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/CheckPoint.tscn" id="2_hkyd4"]
 [ext_resource type="PackedScene" uid="uid://d1dl5o2l103yq" path="res://Timer/Timer.tscn" id="5_6qi12"]
 [ext_resource type="PackedScene" uid="uid://6h4usr1uhwey" path="res://Checkpoint/LevelEnd.tscn" id="6_5mrqa"]
+[ext_resource type="PackedScene" uid="uid://cti5csv2gixaj" path="res://Timer/speed_counter.tscn" id="6_eyp6o"]
+[ext_resource type="PackedScene" uid="uid://brky8na4eiune" path="res://Obstacles/Obstacle_Cone.tscn" id="7_ndg05"]
+[ext_resource type="PackedScene" uid="uid://bbuor71w7gaxd" path="res://Obstacles/Obstacle_Carton.tscn" id="8_1ltik"]
+[ext_resource type="PackedScene" uid="uid://b5dmq1q21bq2f" path="res://Obstacles/Obstacle_Mur.tscn" id="9_jai7d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc0ds"]
 size = Vector2(640, 200)
@@ -104,5 +108,16 @@ position = Vector2(979, 175)
 
 [node name="Timer" parent="CanvasLayer" instance=ExtResource("5_6qi12")]
 
+[node name="SpeedCounter" parent="CanvasLayer" instance=ExtResource("6_eyp6o")]
+
 [node name="LevelEnd" parent="." instance=ExtResource("6_5mrqa")]
 position = Vector2(1188, 149)
+
+[node name="Obstacle_Mur" parent="." instance=ExtResource("9_jai7d")]
+position = Vector2(167, 193)
+
+[node name="Obstacle_Cone" parent="." instance=ExtResource("7_ndg05")]
+position = Vector2(870, 193)
+
+[node name="Obstacle_Carton" parent="." instance=ExtResource("8_1ltik")]
+position = Vector2(1062, 193)
