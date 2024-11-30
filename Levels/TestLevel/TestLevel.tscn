@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bmqwp0r1lhn46"]
 
-[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="1_x2scg"]
+[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/MainMenu/640px-Opossum_1.jpg" id="1_x2scg"]
 [ext_resource type="Script" path="res://Levels/TestLevel/testlevel.gd" id="1_xv074"]
 [ext_resource type="PackedScene" uid="uid://ddlwqso65wgkm" path="res://Player/PlayerController.tscn" id="4_fm5vk"]
 [ext_resource type="PackedScene" uid="uid://3rk5bccwgw5c" path="res://Levels/Elements/obstacle.tscn" id="4_l2qba"]
