@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b5dmq1q21bq2f" path="res://Obstacles/Obstacle_Mur.tscn" id="4_13vne"]
 [ext_resource type="PackedScene" uid="uid://d1dl5o2l103yq" path="res://Timer/Timer.tscn" id="4_a7a37"]
 [ext_resource type="PackedScene" uid="uid://ckfyrvjhmjb7w" path="res://Checkpoint/LevelEnd.tscn" id="5_7coiq"]
-[ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/checkpoint.tscn" id="5_bubwb"]
+[ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/CheckPoint.tscn" id="5_bubwb"]
 [ext_resource type="PackedScene" uid="uid://hhg3splfg7rx" path="res://Parallax/Parallax.tscn" id="6_je5dk"]
 [ext_resource type="PackedScene" uid="uid://bhq1ku8ahsqna" path="res://Timer/speed_counter.tscn" id="6_sqcud"]
 [ext_resource type="PackedScene" uid="uid://brky8na4eiune" path="res://Obstacles/Obstacle_Cone.tscn" id="9_ciupy"]
@@ -285,3 +285,6 @@ SPEED_FOR_SPARKLE = 130
 
 [node name="Checkpoint2" parent="." instance=ExtResource("5_bubwb")]
 position = Vector2(2832, 167)
+
+[node name="PlayerStart" type="Marker2D" parent="."]
+position = Vector2(-2197, 303)
