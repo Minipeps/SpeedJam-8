@@ -13,7 +13,6 @@ extends CharacterBody2D
 @export var FLASH_TIME = 0.2
 @export var SPEED_FOR_SPARKLE = 50
 @export var SPARkLE_TIME = 0.2
-@export var CAMERA_SHAKE_STRENGTH= 10
 
 signal on_player_death
 
@@ -55,7 +54,7 @@ func _ready():
 	fallAnimationTimer.set_one_shot(true)
 	fallAnimationTimer.set_wait_time(FLASH_TIME)
 	fallAnimationTimer.timeout.connect(_reset_color)
-	fallAnimationTimer.timeout.connect(_reset_camera)
+	fallAnimationTimer.timeout.connect($Camera2D.reset_shake)
 	
 	loadingJumpTimer.set_one_shot(true)
 	loadingJumpTimer.set_wait_time(TIME_TO_REACH_MAX_JUMP_VELOCITY)
@@ -83,9 +82,11 @@ func _physics_process(delta):
 		_stop_sparkling()
 	if fallAnimationTimer.is_stopped() == false:
 		_apply_fall_color()
-		_camera_shake();
+		$Camera2D.camera_shake();
 	if techAnimationTimer.is_stopped() == false:
 		_apply_tech_color()
+	$Camera2D.apply_velocity(velocity.x, MAX_SPEED);	
+	
 	if not isDead:
 		_handleMovement(delta)
 
@@ -237,17 +238,9 @@ func _on_dead_state_entered():
 func _reset_color():
 	$AnimatedSprite2D.modulate = Color(1., 1., 1.)
 
-func _reset_camera():
-	$Camera2D.position = Vector2.ZERO
-
 func _apply_tech_color():
 	var normalized = techAnimationTimer.time_left / techAnimationTimer.wait_time
 	$AnimatedSprite2D.modulate.v = normalized*15.
-	
-func _camera_shake():
-	_reset_camera()
-	$Camera2D.position.x += randi_range(1,CAMERA_SHAKE_STRENGTH) - CAMERA_SHAKE_STRENGTH/2
-	$Camera2D.position.y += randi_range(1,CAMERA_SHAKE_STRENGTH) - CAMERA_SHAKE_STRENGTH/2
 	
 func _apply_fall_color():
 	var normalized = fallAnimationTimer.time_left / fallAnimationTimer.wait_time
