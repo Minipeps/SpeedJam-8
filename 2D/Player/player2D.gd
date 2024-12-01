@@ -76,12 +76,7 @@ func _on_tech_timer_elapsed():
 	attemptingTech = false
 
 func _physics_process(delta):
-<<<<<<< HEAD
-	print(velocity.x)
 	if velocity.x > SPEED_FOR_SPARKLE:
-=======
-	if velocity.x < 50:
->>>>>>> ed7f3bfba71f6d3d814abf352f74f6f126eddc68
 		_start_sparkling()
 	else:
 		_stop_sparkling()
