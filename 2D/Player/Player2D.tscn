@@ -297,4 +297,5 @@ parameters/looping = true
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Audio/Music"]
 stream = ExtResource("18_r8y2o")
+volume_db = -10.0
 autoplay = true
