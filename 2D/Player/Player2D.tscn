@@ -206,6 +206,21 @@ position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_glvm2")
 animation = &"preparejump"
 
+[node name="Sparkle" type="CPUParticles2D" parent="."]
+position = Vector2(-5, 0)
+amount = 30
+lifetime = 0.3
+speed_scale = 0.4
+explosiveness = 0.09
+randomness = 0.73
+emission_shape = 2
+emission_sphere_radius = 0.01
+direction = Vector2(-2.84, -1)
+spread = 36.78
+gravity = Vector2(-100, -200)
+initial_velocity_max = 114.28
+color = Color(1, 1, 0.141176, 1)
+
 [node name="TechTimer" type="Timer" parent="."]
 
 [node name="TechAnimationTimer" type="Timer" parent="."]

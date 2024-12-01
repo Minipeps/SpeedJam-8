@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ckfyrvjhmjb7w" path="res://Checkpoint/LevelEnd.tscn" id="5_7coiq"]
 [ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/checkpoint.tscn" id="5_bubwb"]
 [ext_resource type="PackedScene" uid="uid://hhg3splfg7rx" path="res://Parallax/Parallax.tscn" id="6_je5dk"]
-[ext_resource type="PackedScene" uid="uid://cti5csv2gixaj" path="res://Timer/speed_counter.tscn" id="6_sqcud"]
+[ext_resource type="PackedScene" uid="uid://bhq1ku8ahsqna" path="res://Timer/speed_counter.tscn" id="6_sqcud"]
 [ext_resource type="PackedScene" uid="uid://brky8na4eiune" path="res://Obstacles/Obstacle_Cone.tscn" id="9_ciupy"]
 [ext_resource type="PackedScene" uid="uid://bbuor71w7gaxd" path="res://Obstacles/Obstacle_Carton.tscn" id="10_efqkv"]
 
