@@ -83,7 +83,7 @@ script = ExtResource("1_ng7kv")
 texture_filter = 1
 position = Vector2(10, -3)
 sprite_frames = SubResource("SpriteFrames_sf04e")
-animation = &"greenflag"
+animation = &"redflag"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
