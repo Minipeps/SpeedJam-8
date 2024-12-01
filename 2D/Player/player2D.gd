@@ -40,6 +40,11 @@ var isDead: bool = false
 @onready var techAnimationTimer: Timer = $TechAnimationTimer
 @onready var fallAnimationTimer: Timer = $FallAnimationTimer
 @onready var flyingTimer: Timer = $FlyingTimer
+@onready var TechSuccess = $Audio/TechSuccess
+@onready var TechFail = $Audio/TechFail
+@onready var Jump = $Audio/Jump
+@onready var Rolling = $Audio/Rolling
+
 var attemptingTech: bool = false
 
 func _ready():
@@ -81,6 +86,8 @@ func _physics_process(delta):
 	else:
 		_stop_sparkling()
 	if fallAnimationTimer.is_stopped() == false:
+		if(not TechFail.get_child(0).is_playing()):
+			TechFail.get_child(0).play()
 		_apply_fall_color()
 		$Camera2D.camera_shake();
 	if techAnimationTimer.is_stopped() == false:
@@ -99,6 +106,8 @@ func _handleMovement(delta):
 
 	# Do not update player velocity if we are not on the floor
 	if not is_on_floor():
+		if Rolling.get_child(0).is_playing():
+			Rolling.get_child(0).stop()
 		if not leftTheFloor:
 			_leave_floor()
 		if self.velocity.y >= 0:
@@ -151,6 +160,9 @@ func _handleMovement(delta):
 		_change_state_conditional(State.IDLE, currentState != State.PREPARE_JUMP)
 	
 	self.velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
+	
+	if (self.velocity.x == 0) and Rolling.get_child(0).is_playing():
+		Rolling.get_child(0).stop()
 	# Apply velocity and update floor_normal
 	move_and_slide()
 	
@@ -217,12 +229,14 @@ func _on_prepare_jump_state_entered():
 	animatedSprite.play("preparejump")
 
 func _on_jumping_state_entered():
+	Jump.get_child(0).play()
 	animatedSprite.play("jumping")
 	
 func _on_falling_state_entered():
 	animatedSprite.play("falling")
 	
 func _on_kicking_state_entered():
+	Rolling.get_child(0).play()
 	animatedSprite.play("kick")
 	
 func _on_rolling_state_entered():
@@ -230,6 +244,8 @@ func _on_rolling_state_entered():
 
 func _on_tech_state_entered():
 	techAnimationTimer.start()
+	for c in TechSuccess.get_children():
+		c.play()
 	pass
 
 func _on_dead_state_entered():
