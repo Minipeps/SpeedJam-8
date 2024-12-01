@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c7cx7wyya1ssx"]
+[gd_scene load_steps=30 format=3 uid="uid://c7cx7wyya1ssx"]
 
 [ext_resource type="Script" path="res://2D/Player/player2D.gd" id="1_53slt"]
 [ext_resource type="Texture2D" uid="uid://uba43eeiotb6" path="res://Sprites/Player/skaterrolling.png" id="2_5fncy"]
@@ -189,8 +189,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_wopi2"]
+offsets = PackedFloat32Array(0, 0.161716)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 0, 1)
+
 [node name="Player2d" type="CharacterBody2D"]
 collision_mask = 14
+floor_snap_length = 5.0
 script = ExtResource("1_53slt")
 MAX_FALL_HEIGHT = 5
 
@@ -206,9 +211,13 @@ position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_glvm2")
 animation = &"preparejump"
 
+[node name="TechTimer" type="Timer" parent="."]
+
+[node name="TechAnimationTimer" type="Timer" parent="."]
+
 [node name="Sparkle" type="CPUParticles2D" parent="."]
 position = Vector2(-5, 0)
-amount = 30
+amount = 40
 lifetime = 0.3
 speed_scale = 0.4
 explosiveness = 0.09
@@ -219,11 +228,12 @@ direction = Vector2(-2.84, -1)
 spread = 36.78
 gravity = Vector2(-100, -200)
 initial_velocity_max = 114.28
+scale_amount_min = 0.1
+scale_amount_max = 3.0
 color = Color(1, 1, 0.141176, 1)
-
-[node name="TechTimer" type="Timer" parent="."]
-
-[node name="TechAnimationTimer" type="Timer" parent="."]
+color_ramp = SubResource("Gradient_wopi2")
+hue_variation_min = 0.34
+hue_variation_max = 0.34
 
 [node name="FlyingTimer" type="Timer" parent="."]
 
