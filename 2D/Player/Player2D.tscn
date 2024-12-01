@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c7cx7wyya1ssx"]
+[gd_scene load_steps=43 format=3 uid="uid://c7cx7wyya1ssx"]
 
 [ext_resource type="Script" path="res://2D/Player/player2D.gd" id="1_53slt"]
 [ext_resource type="Texture2D" uid="uid://uba43eeiotb6" path="res://Sprites/Player/skaterrolling.png" id="2_5fncy"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://b43radiulsltd" path="res://Audio/Player/fall.ogg" id="15_64nt5"]
 [ext_resource type="AudioStream" uid="uid://bse3m64jkgrhy" path="res://Audio/Player/jump.ogg" id="16_hacal"]
 [ext_resource type="AudioStream" uid="uid://d3u5dsqjb5sd0" path="res://Audio/Player/rolling.ogg" id="17_6qpxu"]
+[ext_resource type="AudioStream" uid="uid://dgocrqe2hc8ej" path="res://Audio/Music/Loop_simple.ogg" id="18_r8y2o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_75ww0"]
 radius = 8.0
@@ -291,3 +292,9 @@ stream = ExtResource("16_hacal")
 [node name="RollingSFX" type="AudioStreamPlayer2D" parent="Audio/Rolling"]
 stream = ExtResource("17_6qpxu")
 parameters/looping = true
+
+[node name="Music" type="Node2D" parent="Audio"]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="Audio/Music"]
+stream = ExtResource("18_r8y2o")
+autoplay = true
