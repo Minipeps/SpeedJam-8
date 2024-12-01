@@ -17,6 +17,8 @@ func _initialization():
 	pauseMenu = get_node("PauseMenu")
 	var resumeButton = get_node("PauseMenu/ResumeButton")
 	resumeButton.pressed.connect(self._onResumeButtonPressed) #event needs to be connected that way because resumeButton is in another node
+	var restartButton = get_node("PauseMenu/RestartButton")
+	restartButton.pressed.connect(self._onRestartButtonPressed)
 		
 func _inputsHandler():
 	self._handlePauseInput()
@@ -39,3 +41,7 @@ func _onResumeButtonPressed():
 	get_node("/root").get_child(0).get_tree().paused = false
 	Input.set_mouse_mode(mouseModeOnResume)
 	pauseMenu.visible = false
+
+func _onRestartButtonPressed():
+	get_owner().restart_level()
+	_onResumeButtonPressed()
