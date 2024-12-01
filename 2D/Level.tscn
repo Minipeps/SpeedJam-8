@@ -1,16 +1,16 @@
-[gd_scene load_steps=17 format=4 uid="uid://bdvcv3bw5ysdy"]
-
+[gd_scene load_steps=18 format=3 uid="uid://bdvcv3bw5ysdy"]
 [ext_resource type="Script" path="res://2D/Level.gd" id="1_y5gdm"]
 [ext_resource type="Texture2D" uid="uid://dmc4g62t0md67" path="res://Sprites/Tileset/tileset_roof.png" id="2_0sl3k"]
 [ext_resource type="PackedScene" uid="uid://c7cx7wyya1ssx" path="res://2D/Player/Player2D.tscn" id="3_dohc5"]
 [ext_resource type="PackedScene" uid="uid://b5dmq1q21bq2f" path="res://Obstacles/Obstacle_Mur.tscn" id="4_13vne"]
 [ext_resource type="PackedScene" uid="uid://d1dl5o2l103yq" path="res://Timer/Timer.tscn" id="4_a7a37"]
 [ext_resource type="PackedScene" uid="uid://ckfyrvjhmjb7w" path="res://Checkpoint/LevelEnd.tscn" id="5_7coiq"]
-[ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/checkpoint.tscn" id="5_bubwb"]
+[ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/CheckPoint.tscn" id="5_bubwb"]
 [ext_resource type="PackedScene" uid="uid://hhg3splfg7rx" path="res://Parallax/Parallax.tscn" id="6_je5dk"]
-[ext_resource type="PackedScene" uid="uid://cti5csv2gixaj" path="res://Timer/speed_counter.tscn" id="6_sqcud"]
+[ext_resource type="PackedScene" uid="uid://bhq1ku8ahsqna" path="res://Timer/speed_counter.tscn" id="6_sqcud"]
 [ext_resource type="PackedScene" uid="uid://brky8na4eiune" path="res://Obstacles/Obstacle_Cone.tscn" id="9_ciupy"]
 [ext_resource type="PackedScene" uid="uid://bbuor71w7gaxd" path="res://Obstacles/Obstacle_Carton.tscn" id="10_efqkv"]
+[ext_resource type="PackedScene" uid="uid://cgvjvqo546f6g" path="res://Controllers/PauseController.tscn" id="12_btp1p"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vog4m"]
 
@@ -249,16 +249,15 @@ polygon = PackedVector2Array(3008, 688, 3423, 1103, 3680, 1232, 4128, 1232, 4128
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Timer" parent="CanvasLayer" instance=ExtResource("4_a7a37")]
-offset_left = -5.0
-offset_top = -12.0
-offset_right = -5.0
-offset_bottom = -12.0
 
 [node name="SpeedCounter" parent="CanvasLayer" instance=ExtResource("6_sqcud")]
-offset_left = 2.0
-offset_top = 151.0
-offset_right = -236.0
-offset_bottom = 11.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PauseController" parent="CanvasLayer" instance=ExtResource("12_btp1p")]
 
 [node name="Checkpoint" parent="." instance=ExtResource("5_bubwb")]
 position = Vector2(88, 265)
@@ -286,3 +285,6 @@ SPEED_FOR_SPARKLE = 130
 
 [node name="Checkpoint2" parent="." instance=ExtResource("5_bubwb")]
 position = Vector2(2832, 167)
+
+[node name="PlayerStart" type="Marker2D" parent="."]
+position = Vector2(-2197, 303)

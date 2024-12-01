@@ -6,6 +6,8 @@ var LAST_CHECKPOINT
 func _ready() -> void:
 	if $CanvasLayer/Timer:
 		$CanvasLayer/Timer.restart_timer()
+	if $PlayerStart and $Player2d:
+		$Player2d.position = $PlayerStart.position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

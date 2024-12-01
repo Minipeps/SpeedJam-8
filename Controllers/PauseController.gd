@@ -21,7 +21,7 @@ func _initialization():
 func _inputsHandler():
 	self._handlePauseInput()
 
-func _handlePauseInput():	
+func _handlePauseInput():
 	if(Input.is_action_just_pressed("pause")):
 		if(Main.getCurrentGameMode() == Main.GAME_MODE.IN_LEVEL_LOST || Main.getCurrentGameMode() == Main.GAME_MODE.IN_LEVEL_WIN):
 			return
