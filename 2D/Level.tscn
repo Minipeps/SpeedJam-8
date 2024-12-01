@@ -102,10 +102,10 @@ position = Vector2(89, 252)
 position = Vector2(2832, 156)
 
 [node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("5_bubwb")]
-position = Vector2(4560, 1196)
+position = Vector2(4439, 1196)
 
 [node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("5_bubwb")]
-position = Vector2(6903, 1020)
+position = Vector2(6818, 1020)
 
 [node name="Player2d" parent="." instance=ExtResource("3_dohc5")]
 position = Vector2(-7979, 45)
@@ -147,7 +147,7 @@ position = Vector2(11869, 1257)
 position = Vector2(11982, 1256)
 
 [node name="Checkpoint" parent="." instance=ExtResource("5_bubwb")]
-position = Vector2(9315, 988)
+position = Vector2(9237, 988)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("5_bubwb")]
 position = Vector2(10716, 1052)
