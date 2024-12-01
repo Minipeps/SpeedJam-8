@@ -110,11 +110,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="EndTutorial" type="Label" parent="."]
-offset_left = 4901.0
-offset_top = -83.0
-offset_right = 5213.0
-offset_bottom = -29.0
-text = "Time to ride
+offset_left = 4928.0
+offset_top = -58.0
+offset_right = 5240.0
+offset_bottom = -4.0
+text = "Time to ride!
+Reach the end of the level as fast as possible
 Don't break your flow!"
 label_settings = ExtResource("4_hdes5")
 horizontal_alignment = 1
