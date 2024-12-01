@@ -6,6 +6,7 @@
 [node name="PauseController" type="Node"]
 process_mode = 3
 script = ExtResource("1_hlemc")
+mouseModeOnResume = 0
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_kao07")]
 unique_name_in_owner = true

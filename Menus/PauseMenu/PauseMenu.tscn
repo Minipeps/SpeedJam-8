@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://dhgd3qlrgsk8g"]
+[gd_scene load_steps=2 format=3 uid="uid://dhgd3qlrgsk8g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v23hd"]
+font_size = 32
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -20,16 +23,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.211765, 0.635294, 0.839216, 0.670588)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -132.5
-offset_right = 132.5
-offset_bottom = 40.0
+offset_left = -41.0
+offset_top = 50.0
+offset_right = 41.0
+offset_bottom = 82.0
 grow_horizontal = 2
-text = "PAUSé"
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_v23hd")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="."]
 layout_mode = 1
@@ -44,5 +51,21 @@ offset_right = 4.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "ON REPREND????
+text = "Resume
+"
+
+[node name="RestartLevel" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = 20.0
+offset_right = 27.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart
 "
