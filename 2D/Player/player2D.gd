@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED = 200.0
+@export var MAX_SPEED = 400
 @export var MAX_JUMP_VELOCITY = 300
 @export var TIME_TO_REACH_MAX_JUMP_VELOCITY = 1.
 @export var MAX_JUMP_DURATION = 3.
@@ -147,7 +148,8 @@ func _handleMovement(delta):
 		_change_state_conditional(State.ROLLING, currentState != State.PREPARE_JUMP)
 	else:
 		_change_state_conditional(State.IDLE, currentState != State.PREPARE_JUMP)
-
+	
+	self.velocity.x = clampf(velocity.x, -MAX_SPEED, MAX_SPEED)
 	# Apply velocity and update floor_normal
 	move_and_slide()
 	
