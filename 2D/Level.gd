@@ -26,6 +26,8 @@ func load_last_checkpoint():
 		$Player2d.position = LAST_CHECKPOINT.position
 		$Player2d.reset_player()
 		LAST_CHECKPOINT = null
+	else:
+		restart_level()
 	
 func update_speedCounter():
 	if $CanvasLayer/SpeedCounter:
