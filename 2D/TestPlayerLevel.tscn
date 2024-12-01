@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c7cx7wyya1ssx" path="res://2D/Player/Player2D.tscn" id="2_h8e3e"]
 [ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/checkpoint.tscn" id="2_hkyd4"]
 [ext_resource type="PackedScene" uid="uid://d1dl5o2l103yq" path="res://Timer/Timer.tscn" id="5_6qi12"]
-[ext_resource type="PackedScene" path="res://Checkpoint/LevelEnd.tscn" id="6_5mrqa"]
+[ext_resource type="PackedScene" uid="uid://ckfyrvjhmjb7w" path="res://Checkpoint/LevelEnd.tscn" id="6_5mrqa"]
 [ext_resource type="PackedScene" uid="uid://bhq1ku8ahsqna" path="res://Timer/speed_counter.tscn" id="6_eyp6o"]
 [ext_resource type="PackedScene" uid="uid://brky8na4eiune" path="res://Obstacles/Obstacle_Cone.tscn" id="7_ndg05"]
 [ext_resource type="PackedScene" uid="uid://bbuor71w7gaxd" path="res://Obstacles/Obstacle_Carton.tscn" id="8_1ltik"]
