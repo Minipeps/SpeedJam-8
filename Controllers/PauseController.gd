@@ -1,26 +1,21 @@
 extends Node
 
-var pauseMenu
+@onready var pauseMenu = $"PauseMenu"
+@onready var restartButton = $"PauseMenu/VBoxContainer/RestartButton"
+@onready var resumeButton = $"PauseMenu/VBoxContainer/ResumeButton"
+@onready var menuButton = $"PauseMenu/VBoxContainer/MainMenuButton"
 
 @export var mouseModeOnPause: Input.MouseMode = Input.MOUSE_MODE_VISIBLE
 
 @export var mouseModeOnResume: Input.MouseMode = Input.MOUSE_MODE_CAPTURED
 
 func _ready():
-	self._initialization()
-	
+	resumeButton.pressed.connect(_onResumeButtonPressed)
+	menuButton.pressed.connect(_onBackToMenuButtonPressed)
+	restartButton.pressed.connect(_onRestartButtonPressed)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	self._inputsHandler()
-	
-func _initialization():
-	pauseMenu = get_node("PauseMenu")
-	var resumeButton = get_node("PauseMenu/ResumeButton")
-	resumeButton.pressed.connect(self._onResumeButtonPressed) #event needs to be connected that way because resumeButton is in another node
-	var restartButton = get_node("PauseMenu/RestartButton")
-	restartButton.pressed.connect(self._onRestartButtonPressed)
-		
-func _inputsHandler():
 	self._handlePauseInput()
 
 func _handlePauseInput():
@@ -45,3 +40,9 @@ func _onResumeButtonPressed():
 func _onRestartButtonPressed():
 	get_owner().restart_level()
 	_onResumeButtonPressed()
+
+func _onBackToMenuButtonPressed():
+	get_node("/root").get_child(0).get_tree().paused = false
+	Input.set_mouse_mode(mouseModeOnResume)
+	pauseMenu.visible = false
+	get_tree().change_scene_to_file("res://Menus/MainMenu/MainMenu.tscn")
