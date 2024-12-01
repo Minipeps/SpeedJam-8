@@ -1,17 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1dl5o2l103yq"]
+[gd_scene load_steps=3 format=3 uid="uid://d1dl5o2l103yq"]
 
 [ext_resource type="Script" path="res://Timer/timer.gd" id="1_8j3da"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_rbrcn"]
+font_size = 32
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
 [node name="Timer" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
 script = ExtResource("1_8j3da")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 57.0
-offset_bottom = 39.0
+offset_left = -104.0
+offset_right = -8.0
+offset_bottom = 32.0
 theme_override_colors/font_color = Color(0.0332962, 0, 0.699638, 1)
 text = "00:00:00"
+label_settings = SubResource("LabelSettings_rbrcn")

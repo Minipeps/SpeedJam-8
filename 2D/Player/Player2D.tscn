@@ -216,10 +216,12 @@ stream_4/stream = ExtResource("12_1uwec")
 collision_mask = 14
 floor_snap_length = 5.0
 script = ExtResource("1_53slt")
+MAX_SPEED = 500
 MAX_FALL_HEIGHT = 5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_naars")
+CAMERA_SPEED_EFFECT = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
