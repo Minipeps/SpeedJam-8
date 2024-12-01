@@ -4,10 +4,8 @@ var LAST_CHECKPOINT
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if $CanvasLayer/Timer:
-		$CanvasLayer/Timer.restart_timer()
-	if $PlayerStart and $Player2d:
-		$Player2d.position = $PlayerStart.position
+	restart_timer()
+	position_player_at_start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -21,7 +19,7 @@ func _input(event):
 func register_checkpoint(checkpoint_reference):
 	if LAST_CHECKPOINT != checkpoint_reference:
 		LAST_CHECKPOINT = checkpoint_reference
-		print(checkpoint_reference.name)
+		print("Debug : " + checkpoint_reference.name)
 
 func load_last_checkpoint():
 	if LAST_CHECKPOINT != null:
@@ -32,3 +30,17 @@ func load_last_checkpoint():
 func update_speedCounter():
 	if $CanvasLayer/SpeedCounter:
 		$CanvasLayer/SpeedCounter.SPEED_TO_DISPLAY = $Player2d.velocity.x
+		
+func position_player_at_start():
+	if $PlayerStart and $Player2d:
+		$Player2d.position = $PlayerStart.position
+
+func restart_timer():
+	if $CanvasLayer/Timer:
+		$CanvasLayer/Timer.restart_timer()
+		
+func restart_level():
+	restart_timer()
+	position_player_at_start()
+	$Player2d.reset_player()
+	LAST_CHECKPOINT = null
