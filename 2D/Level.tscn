@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ckfyrvjhmjb7w" path="res://Checkpoint/LevelEnd.tscn" id="5_7coiq"]
 [ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/checkpoint.tscn" id="5_bubwb"]
 [ext_resource type="PackedScene" uid="uid://hhg3splfg7rx" path="res://Parallax/Parallax.tscn" id="6_je5dk"]
-[ext_resource type="PackedScene" uid="uid://cti5csv2gixaj" path="res://Timer/speed_counter.tscn" id="6_sqcud"]
+[ext_resource type="PackedScene" uid="uid://bhq1ku8ahsqna" path="res://Timer/speed_counter.tscn" id="6_sqcud"]
 [ext_resource type="PackedScene" uid="uid://brky8na4eiune" path="res://Obstacles/Obstacle_Cone.tscn" id="9_ciupy"]
 [ext_resource type="PackedScene" uid="uid://bbuor71w7gaxd" path="res://Obstacles/Obstacle_Carton.tscn" id="10_efqkv"]
 
@@ -256,18 +256,3 @@ MAX_JUMP_DURATION = 0.25
 GRAVITY_FACTOR = 4
 FALL_FACTOR = 2000
 TECH_TOLERANCE_TIME = 0.5
-
-[node name="Sparkle" type="CPUParticles2D" parent="Player2d"]
-position = Vector2(-5, 0)
-amount = 30
-lifetime = 0.3
-speed_scale = 0.4
-explosiveness = 0.09
-randomness = 0.73
-emission_shape = 2
-emission_sphere_radius = 0.01
-direction = Vector2(-2.84, -1)
-spread = 36.78
-gravity = Vector2(-100, -200)
-initial_velocity_max = 114.28
-color = Color(1, 1, 0.141176, 1)
