@@ -74,13 +74,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xb2f6"]
-size = Vector2(17, 32)
+size = Vector2(17, 72)
 
 [node name="Checkpoint" type="Node2D"]
 script = ExtResource("1_ng7kv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, 20)
 sprite_frames = SubResource("SpriteFrames_sf04e")
 animation = &"redflag"
 
