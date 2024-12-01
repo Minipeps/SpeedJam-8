@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ckfyrvjhmjb7w" path="res://Checkpoint/LevelEnd.tscn" id="5_7coiq"]
 [ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/checkpoint.tscn" id="5_bubwb"]
 [ext_resource type="PackedScene" uid="uid://hhg3splfg7rx" path="res://Parallax/Parallax.tscn" id="6_je5dk"]
-[ext_resource type="PackedScene" uid="uid://cti5csv2gixaj" path="res://Timer/speed_counter.tscn" id="6_sqcud"]
+[ext_resource type="PackedScene" uid="uid://bhq1ku8ahsqna" path="res://Timer/speed_counter.tscn" id="6_sqcud"]
 [ext_resource type="PackedScene" uid="uid://brky8na4eiune" path="res://Obstacles/Obstacle_Cone.tscn" id="9_ciupy"]
 [ext_resource type="PackedScene" uid="uid://bbuor71w7gaxd" path="res://Obstacles/Obstacle_Carton.tscn" id="10_efqkv"]
 
@@ -248,16 +248,13 @@ polygon = PackedVector2Array(3008, 688, 3423, 1103, 3680, 1232, 4128, 1232, 4128
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Timer" parent="CanvasLayer" instance=ExtResource("4_a7a37")]
-offset_left = -5.0
-offset_top = -12.0
-offset_right = -5.0
-offset_bottom = -12.0
 
 [node name="SpeedCounter" parent="CanvasLayer" instance=ExtResource("6_sqcud")]
-offset_left = 2.0
-offset_top = 151.0
-offset_right = -236.0
-offset_bottom = 11.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Checkpoint" parent="." instance=ExtResource("5_bubwb")]
 position = Vector2(88, 265)
