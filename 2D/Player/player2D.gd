@@ -11,6 +11,8 @@ extends CharacterBody2D
 @export var TECH_TOLERANCE_TIME = 0.1
 @export var FLASH_TIME = 0.2
 @export var SPEED_FOR_SPARKLE = 50
+@export var SPARkLE_TIME = 0.2
+@export var CAMERA_SHAKE_STRENGTH= 10
 
 signal on_player_death
 
@@ -74,8 +76,12 @@ func _on_tech_timer_elapsed():
 	attemptingTech = false
 
 func _physics_process(delta):
+<<<<<<< HEAD
 	print(velocity.x)
 	if velocity.x > SPEED_FOR_SPARKLE:
+=======
+	if velocity.x < 50:
+>>>>>>> ed7f3bfba71f6d3d814abf352f74f6f126eddc68
 		_start_sparkling()
 	else:
 		_stop_sparkling()
@@ -243,8 +249,8 @@ func _apply_tech_color():
 	
 func _camera_shake():
 	_reset_camera()
-	$Camera2D.position.x += randi_range(1,10) - 5
-	$Camera2D.position.y += randi_range(1,10) - 5
+	$Camera2D.position.x += randi_range(1,CAMERA_SHAKE_STRENGTH) - CAMERA_SHAKE_STRENGTH/2
+	$Camera2D.position.y += randi_range(1,CAMERA_SHAKE_STRENGTH) - CAMERA_SHAKE_STRENGTH/2
 	
 func _apply_fall_color():
 	var normalized = fallAnimationTimer.time_left / fallAnimationTimer.wait_time
