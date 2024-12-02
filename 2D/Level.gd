@@ -23,7 +23,7 @@ func register_checkpoint(checkpoint_reference):
 
 func load_last_checkpoint():
 	if LAST_CHECKPOINT != null:
-		$Player2d.position = LAST_CHECKPOINT.global_position
+		$Player2d.position = LAST_CHECKPOINT.global_position + Vector2(0, 20)
 		$Player2d.reset_player()
 		LAST_CHECKPOINT = null
 	else:
