@@ -5,14 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://c7cx7wyya1ssx" path="res://2D/Player/Player2D.tscn" id="3_dohc5"]
 [ext_resource type="PackedScene" uid="uid://b5dmq1q21bq2f" path="res://Obstacles/Obstacle_Mur.tscn" id="4_13vne"]
 [ext_resource type="PackedScene" uid="uid://d1dl5o2l103yq" path="res://Timer/Timer.tscn" id="4_a7a37"]
-[ext_resource type="PackedScene" uid="uid://ckfyrvjhmjb7w" path="res://Checkpoint/LevelEnd.tscn" id="5_7coiq"]
+[ext_resource type="PackedScene" path="res://Checkpoint/LevelEnd.tscn" id="5_7coiq"]
 [ext_resource type="PackedScene" uid="uid://b7qnyrfh2v8ve" path="res://Checkpoint/checkpoint.tscn" id="5_bubwb"]
 [ext_resource type="PackedScene" uid="uid://hhg3splfg7rx" path="res://Parallax/Parallax.tscn" id="6_je5dk"]
 [ext_resource type="PackedScene" uid="uid://bhq1ku8ahsqna" path="res://Timer/speed_counter.tscn" id="6_sqcud"]
 [ext_resource type="PackedScene" uid="uid://brky8na4eiune" path="res://Obstacles/Obstacle_Cone.tscn" id="9_ciupy"]
 [ext_resource type="PackedScene" uid="uid://bbuor71w7gaxd" path="res://Obstacles/Obstacle_Carton.tscn" id="10_efqkv"]
 [ext_resource type="PackedScene" uid="uid://cgvjvqo546f6g" path="res://Controllers/PauseController.tscn" id="12_btp1p"]
-[ext_resource type="PackedScene" uid="uid://fnqtfpfnxhl4" path="res://2D/tutorial_section.tscn" id="13_nyh6j"]
+[ext_resource type="PackedScene" path="res://2D/tutorial_section.tscn" id="13_nyh6j"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_y5gdm")
@@ -42,7 +42,7 @@ position = Vector2(2650, 186)
 position = Vector2(-1627, 297)
 
 [node name="Checkpoint3" parent="Obstacles" instance=ExtResource("5_bubwb")]
-position = Vector2(-2170, 288)
+position = Vector2(-2170, 270)
 
 [node name="Obstacle_Carton2" parent="Obstacles" instance=ExtResource("10_efqkv")]
 position = Vector2(3948, 1225)
@@ -103,16 +103,16 @@ grow_vertical = 1
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("5_bubwb")]
-position = Vector2(89, 272)
+position = Vector2(91, 254)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("5_bubwb")]
-position = Vector2(2832, 176)
+position = Vector2(2834, 157)
 
 [node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("5_bubwb")]
-position = Vector2(4560, 1216)
+position = Vector2(4562, 1196)
 
 [node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("5_bubwb")]
-position = Vector2(6903, 1040)
+position = Vector2(6901, 1020)
 
 [node name="Player2d" parent="." instance=ExtResource("3_dohc5")]
 position = Vector2(-7979, 45)
@@ -136,7 +136,7 @@ position = Vector2(14447, 1234)
 position = Vector2(-8000, 0)
 
 [node name="Checkpoint" parent="TutorialSection" instance=ExtResource("5_bubwb")]
-position = Vector2(4045, 32)
+position = Vector2(4046, 13)
 
 [node name="Obstacle_Carton" parent="." instance=ExtResource("10_efqkv")]
 position = Vector2(9629, 1018)
@@ -154,7 +154,7 @@ position = Vector2(11869, 1257)
 position = Vector2(12053, 1257)
 
 [node name="Checkpoint" parent="." instance=ExtResource("5_bubwb")]
-position = Vector2(9315, 1008)
+position = Vector2(9317, 987)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("5_bubwb")]
 position = Vector2(10716, 1073)
@@ -163,4 +163,4 @@ position = Vector2(10716, 1073)
 position = Vector2(11149, 1247)
 
 [node name="Checkpoint4" parent="." instance=ExtResource("5_bubwb")]
-position = Vector2(12098, 1247)
+position = Vector2(12097, 1229)
